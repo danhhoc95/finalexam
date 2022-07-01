@@ -4,18 +4,21 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Collection;
 import java.util.Date;
 
 @Entity
 @Data
-public class Account {
+public class User {
     @Id
+    private String phoneNumber;
     private String userName;
     private String password;
     private String email;
-    private String phoneNumber;
     private String address;
     private Date createdDate;
     private String permissions;
+//    public Collection<Order> orders;
+//    public Collection<CartItem> carts;
 
 }
