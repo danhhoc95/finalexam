@@ -11,8 +11,8 @@ import java.util.Date;
 @Data
 public class User {
     @Id
-    private String phoneNumber;
     private String userName;
+    private String phoneNumber;
     private String password;
     private String email;
     private String address;

@@ -14,8 +14,11 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
@@ -56,10 +59,12 @@ public class AccountController {
 
     @PostMapping("/add/user")
     public User addAccount(@RequestBody User user) {
-        Optional<User> us = iAccountService.findById(user.getPhoneNumber());
+        Optional<User> us = iAccountService.findById(user.getUserName());
         if (!us.isEmpty()) {
             throw new AlreadyExistsException("Account is exists");
         }
+        String password = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
+        user.setPassword(password);
         return iAccountService.save(user);
     }
 
@@ -89,8 +94,10 @@ public class AccountController {
     }
 
     // Api /api/random yêu cầu phải xác thực mới có thể request
-    @GetMapping("/random")
-    public RandomStuff randomStuff(){
-        return new RandomStuff("JWT Hợp lệ mới có thể thấy được message này");
-    }
+//    @GetMapping("/logout")
+//    public String logout(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) {
+//        JwtUtil.invalidateRelatedTokens(httpServletRequest);
+//        CookieUtil.clear(httpServletResponse, jwtTokenCookieName);
+//        return "redirect:/";
+//    }
 }
