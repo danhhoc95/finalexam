@@ -7,11 +7,7 @@ import java.util.Optional;
 
 public interface IStoreService {
     List<Store> findAll();
-
     Optional<Store> findById(int id);
-
     Store save(Store store);
-
     void remove(int id);
-
 }

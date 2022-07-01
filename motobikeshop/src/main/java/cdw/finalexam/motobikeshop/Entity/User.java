@@ -11,14 +11,11 @@ import java.util.Date;
 @Data
 public class User {
     @Id
-    private String userName;
     private String phoneNumber;
+    private String userName;
     private String password;
     private String email;
     private String address;
     private Date createdDate;
     private String permissions;
-//    public Collection<Order> orders;
-//    public Collection<CartItem> carts;
-
 }

@@ -12,8 +12,7 @@ import java.util.Collections;
 @Data
 @AllArgsConstructor
 public class CustomUserDetails implements UserDetails  {
-
-    User account;
+    User user;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Collections.singleton(new SimpleGrantedAuthority("ROLE_USER"));
@@ -21,13 +20,15 @@ public class CustomUserDetails implements UserDetails  {
 
     @Override
     public String getPassword() {
-        return account.getPassword();
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return account.getUserName();
+        return user.getUserName();
     }
+
+    public String getPhoneNumber() {return  user.getPhoneNumber(); }
 
     @Override
     public boolean isAccountNonExpired() {
