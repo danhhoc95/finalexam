@@ -81,7 +81,7 @@ class Profile extends Component {
                 {redirectHome}
                 <div className="container">
                     <div className="row my-4">
-                        <div className="col-12 d-flex justify-content-start">
+                        <div className="col-12 d-flex justify-content-end">
                             <button onClick={() => { this.logOut() }} type="button" className="btn btn-danger"><i className="fas fa-sign-out-alt"></i> Đăng xuất</button>
                         </div>
                     </div>

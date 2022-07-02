@@ -37,15 +37,15 @@ class Login extends Component {
             password: this.state.password,
         }
         CallAPI('api/user/login', 'POST', { }, body).then(res => {
-            localStorage.setItem("token", res.data.token);
-            if (res.data.name === " ") {
-                localStorage.setItem("customerName", res.data.phonenumber);
-                this.props.dispatch({ type: "UPDATE_CUSTOMER_WELCOME", data: res.data.phonenumber });
+            localStorage.setItem("token", res.data.accessToken);
+            if (res.data.userName === " ") {
+                localStorage.setItem("customerName", res.data.phoneNumber);
+                this.props.dispatch({ type: "UPDATE_CUSTOMER_WELCOME", data: res.data.phoneNumber });
             } else {
-                localStorage.setItem("customerName", res.data.name);
-                this.props.dispatch({ type: "UPDATE_CUSTOMER_WELCOME", data: res.data.name });
+                localStorage.setItem("customerName", res.data.userName);
+                this.props.dispatch({ type: "UPDATE_CUSTOMER_WELCOME", data: res.data.userName });
             }
-            localStorage.setItem("PHONEUSERLOGINED", res.data.phonenumber);
+            localStorage.setItem("PHONEUSERLOGINED", res.data.phoneNumber);
             this.props.history.push('/home')
         }).catch(
             err => { this.setState({ loginfailed: true }) }

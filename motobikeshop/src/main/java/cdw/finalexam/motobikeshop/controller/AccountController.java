@@ -85,6 +85,11 @@ public class AccountController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         // Trả về jwt cho người dùng.
         String jwt = tokenProvider.generateToken((CustomUserDetails) authentication.getPrincipal());
-        return new LoginResponse(jwt);
+        LoginResponse response = new LoginResponse(jwt);
+        Optional<User> user = iUserService.findById(loginRequest.getPhonenumber());
+        response.setUserName(user.get().getUserName());
+        response.setPermission(user.get().getPermissions());
+        response.setPhoneNumber(user.get().getPhoneNumber());
+        return response;
     }
 }

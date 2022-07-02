@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { Redirect } from "react-router-dom";
 import 'react-input-range/lib/css/index.css';
 import CallAPI from '../../RESTFull/BaseApi';
+import '../../css/FilterBar.css';
+import { FontAwesomeIcon } from '@fortawesome/fontawesome-free'
 
 class FilterBar extends Component {
 
@@ -78,7 +80,6 @@ class FilterBar extends Component {
                                     <option value={2}>Chiều cao</option>
                                     <option value={3}>Mới cập nhật</option>
                                 </select>
-
                             </div>
                         </div>
                     </div>

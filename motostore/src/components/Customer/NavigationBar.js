@@ -35,13 +35,10 @@ class NavigationBar extends Component {
                              to="/profile">
                         <i className="fas fa-user-alt"/> 
                         <span>Tài khoản-
-                            <span style={{ fontWeight: 900 }}>
-                                {this.props.customerNameWellcome}
-                            </span>
+                            <span style={{ fontWeight: 900 }}> {this.props.customerNameWellcome} </span>
                         </span>
                     </NavLink>
-                </li>
-            );
+                </li>);
         }
 
         if (this.props.customerNameWellcome == null) {
@@ -51,8 +48,7 @@ class NavigationBar extends Component {
                              activeClassName="NavItemActive" 
                              className="nav-link NavItem" 
                              to="/login">
-                        <i className="fas fa-key"/>
-                        Login
+                        <i className="fas fa-key"/> Đăng nhập
                     </NavLink>
                 </li>
             );
@@ -64,8 +60,7 @@ class NavigationBar extends Component {
                              activeClassName="NavItemActive" 
                              className="nav-link NavItem" 
                              to="/register">
-                        <i className="fas fa-user-plus"/>
-                        Register
+                        <i className="fas fa-user-plus"/> Đăng ký
                     </NavLink>
                 </li>
             );
@@ -77,10 +72,7 @@ class NavigationBar extends Component {
                     <NavLink onClick={() => this.redirectToHome()} 
                              className="navbar-brand" 
                              to="/">
-                        <img src="../ic_motor.png" 
-                             alt="" 
-                             width={50} 
-                             height={50} />
+                        <img src="../ic_motor.png" alt="" width={50} height={50} />
                     </NavLink>
                     <button className="navbar-toggler" 
                             type="button"
@@ -92,8 +84,7 @@ class NavigationBar extends Component {
                         <span className="navbar-toggler-icon" />
                     </button>
 
-                    <div className="collapse navbar-collapse" 
-                         id="navbarSupportedContentTopMenu">
+                    <div className="collapse navbar-collapse" id="navbarSupportedContentTopMenu">
                         <SuggestSearch />
                         <ul className="nav nav-pills ml-auto">
                             <li className="nav-item">
@@ -101,8 +92,7 @@ class NavigationBar extends Component {
                                          activeClassName="NavItemActive" 
                                          className="nav-link NavItem" 
                                          to="/home">
-                                    <i className="fas fa-home"/>
-                                    Homepage
+                                    <i className="fas fa-home"/> Trang chủ
                                 </NavLink>
                             </li>
                             <li className="nav-item">
@@ -110,8 +100,7 @@ class NavigationBar extends Component {
                                          activeClassName="NavItemActive" 
                                          className="nav-link NavItem" 
                                          to="/product">
-                                    <i className="fas fa-product"/>
-                                    Product
+                                    <i class="fa-solid fa-motorcycle"></i> Sản phẩm
                                 </NavLink>
                             </li>
                             {showProfileButton}
@@ -122,8 +111,7 @@ class NavigationBar extends Component {
                                          activeClassName="NavItemActive" 
                                          className="nav-link NavItem" 
                                          to="/contact">
-                                    <i className="fas fa-shopping-cart"/>
-                                    Contact Us
+                                    <i class="fas fa-square-phone"></i> Liên hệ
                                 </NavLink>
                             </li>
                         </ul>

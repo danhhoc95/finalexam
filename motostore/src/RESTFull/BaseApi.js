@@ -14,7 +14,7 @@ export default function RESTFullapiBaseServer(enpoint, method='GET', paramObj=nu
             'Access-Control-Allow-Origin': true,
         },
         method : method,
-        url : 'http://localhost:8080/api/user/login',
+        url : 'http://localhost:8080/' + enpoint,
         params : paramObj,
         data : body,
     });

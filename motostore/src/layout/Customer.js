@@ -5,14 +5,12 @@ import FilterBar from '../components/Customer/FilterBar';
 
 class Customer extends Component {
     render() {
-        return (
-            <div>
-                 <NavigationBar/>
-                 <FilterBar/>
-                {this.props.children}
-                <Footer/>
-            </div>
-        );
+        return (<div>
+                    <NavigationBar/>
+                    <FilterBar/>
+                    {this.props.children}
+                    <Footer/>
+                </div>);
     }
 }
 

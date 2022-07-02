@@ -12,7 +12,7 @@ class Home extends Component {
     handlePageChange(pageNumber) {
         this.props.dispatch({ type: "UPDATE_ACTIVE_PAGE", data: pageNumber });
         this.props.dispatch({ type: "FETCH_CUSTOMER_LIST_PRODUCT", data: null });
-        CallAPI('products', null, { page: pageNumber }).then(res => {
+        CallAPI('api/products', null, { page: pageNumber }).then(res => {
             this.props.dispatch({ type: "FETCH_CUSTOMER_LIST_PRODUCT", data: res.data.list });
             this.props.dispatch({ type: "UPDATE_ITEMS_COUNT_PER_PAGE", data: res.data.pageSize });
             this.props.dispatch({ type: "UPDATE_TOTAL_ITEMS_COUNT", data: res.data.totalItem });
@@ -22,7 +22,7 @@ class Home extends Component {
 
     componentDidMount() {
         localStorage.removeItem("userRegister");
-        CallAPI('products').then(res => {
+        CallAPI('api/products').then(res => {
             this.props.dispatch({ type: "FETCH_CUSTOMER_LIST_PRODUCT", data: res.data.list });
             this.props.dispatch({ type: "UPDATE_ITEMS_COUNT_PER_PAGE", data: res.data.pageSize });
             this.props.dispatch({ type: "UPDATE_TOTAL_ITEMS_COUNT", data: res.data.totalItem });
@@ -36,7 +36,7 @@ class Home extends Component {
                 <header>
                     <div className="overlay" />
                     <video playsInline="playsinline" autoPlay="autoplay" muted="muted" loop="loop">
-                        <source src="" type="video/mp4" />
+                        <source src="../Intro.mp4" type="video/mp4" />
                     </video>
                     <div className="container h-100">
                         <div className="d-flex h-100 text-center align-items-center">
