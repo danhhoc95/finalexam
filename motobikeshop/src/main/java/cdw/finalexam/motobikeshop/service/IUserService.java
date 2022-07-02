@@ -1,7 +1,6 @@
 package cdw.finalexam.motobikeshop.service;
 
 import cdw.finalexam.motobikeshop.Entity.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 import java.util.Optional;
