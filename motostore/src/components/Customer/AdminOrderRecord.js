@@ -24,20 +24,14 @@ class AdminOrderRecord extends Component {
     }
 
     submitStatus() {
-        CallAPI(
-            `Orders/status`,
-             'PUT',
-            { status: this.state.status, orderID: this.state.orderID })
+        CallAPI(`Orders/status`, 'PUT', { status: this.state.status, orderID: this.state.orderID })
             .catch("Cập nhật đơn hàng thất bại");
         window.location.reload(true);
     }
 
 
     getOrderDetail() {
-        CallAPI(
-            `Orders/orderdetail`,
-            null,
-            { orderId: this.state.orderID })
+        CallAPI(`Orders/orderdetail`, null, { orderId: this.state.orderID })
             .then(res => {
                 this.setState({ listProduct: res.data })
             }).catch(() => {
@@ -48,19 +42,14 @@ class AdminOrderRecord extends Component {
 
     cancelOrder() {
         if (window.confirm("Bạn chắc chắn hủy đơn hàng này")) {
-            CallAPI(
-                'Orders/cancel-order',
-                'POST',
-                { orderId: this.state.orderID }).then(res => {
+            CallAPI('Orders/cancel-order', 'POST', { orderId: this.state.orderID }).then(res => {
                 if (res.data) {
                     window.location.reload();
                 } else {
                     alert("Không thể hủy đơn hàng tại thời điểm này")
                 }
-            }).catch(() => {
-                alert("Lỗi hủy đơn hàng")
-            })
-        }
+            }).catch(() => { alert("Lỗi hủy đơn hàng") }
+            )}
     }
 
     render() {
@@ -68,24 +57,16 @@ class AdminOrderRecord extends Component {
         let orderStatusLbl;
         switch (this.props.status) {
             case "Pending":
-                orderStatusLbl = (
-                    <span className="badge badge-pill badge-secondary">Chờ xác nhận</span>
-                );
+                orderStatusLbl = (<span className="badge badge-pill badge-secondary">Chờ xác nhận</span>);
                 break;
             case "Shipping":
-                orderStatusLbl = (
-                    <span className="badge badge-pill badge-primary">Đang vận chuyển</span>
-                );
+                orderStatusLbl = (<span className="badge badge-pill badge-primary">Đang vận chuyển</span>);
                 break;
             case "Finish":
-                orderStatusLbl = (
-                    <span className="badge badge-pill badge-success">Đã nhận hàng</span>
-                );
+                orderStatusLbl = (<span className="badge badge-pill badge-success">Đã nhận hàng</span>);
                 break;
             case "Cancel":
-                orderStatusLbl = (
-                    <span className="badge badge-pill badge-danger">Đã hủy</span>
-                );
+                orderStatusLbl = (<span className="badge badge-pill badge-danger">Đã hủy</span>);
                 break;
             default:
                 orderStatusLbl = this.props.status;
@@ -95,33 +76,30 @@ class AdminOrderRecord extends Component {
         let showOrderDetail;
         let productRecord;
         if (this.state.listProduct === null) {
-            showOrderDetail = ".........loading.......";
+            showOrderDetail = "loading.......";
         } else {
-
             productRecord = this.state.listProduct.map(product => {
-                return (
-                    <tr key={product.productId}>
-                        <th scope="row"><a href={`/product-detail/` + product.productId}><img width={50} height={50} src={product.thumbnail} /></a></th>
-                        <th ><a href={`/product-detail/` + product.productId}>{product.productName}</a></th>
-                        <td>{numeral(product.productPrice).format('0,0')} đ</td>
-                        <td>{product.quantity}</td>
-                        <td className="text-danger">{numeral(product.totalMoney).format('0,0')} đ</td>
-                    </tr>
-                )
+                return (<tr key={product.productId}>
+                            <th scope="row"><a href={`/product-detail/` + product.productId}><img width={50} height={50} src={product.thumbnail} /></a></th>
+                            <th ><a href={`/product-detail/` + product.productId}>{product.productName}</a></th>
+                            <td>{numeral(product.productPrice).format('0,0')} đ</td>
+                            <td>{product.quantity}</td>
+                            <td className="text-danger">{numeral(product.totalMoney).format('0,0')} đ</td>
+                        </tr>)
             });
             showOrderDetail = (<table className="table">
-                <thead>
-                    <tr>
-                        <th colSpan="2" scope="col">Tên</th>
-                        <th scope="col">Đơn giá</th>
-                        <th scope="col">Số lượng</th>
-                        <th scope="col">Tổng tiền</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {productRecord}
-                </tbody>
-            </table>);
+                                    <thead>
+                                        <tr>
+                                            <th colSpan="2" scope="col">Tên</th>
+                                            <th scope="col">Đơn giá</th>
+                                            <th scope="col">Số lượng</th>
+                                            <th scope="col">Tổng tiền</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {productRecord}
+                                    </tbody>
+                                </table>);
         }
 
         return (
@@ -133,8 +111,7 @@ class AdminOrderRecord extends Component {
                 <td>{orderStatusLbl}</td>
                 <td>{this.props.paymentMethod}</td>
                 <td>
-                    <span className="d-inline-block text-truncate" style={{ width: 100 }}
-                        data-toggle="tooltip" data-placement="top" title={this.props.Address}>
+                    <span className="d-inline-block text-truncate" style={{ width: 100 }} data-toggle="tooltip" data-placement="top" title={this.props.Address}>
                         {this.props.Address}
                     </span>
                 </td>
@@ -166,60 +143,53 @@ class AdminOrderRecord extends Component {
                 </td>
 
                 <td>
-                    {(this.state.status !== 'Cancel') ?
-                        (
-                            <div>
-                                <button type="button" className="btn btn-warning"
-                                    data-toggle="modal" data-target={`#ChangeStatus${this.props.orderID}`}>
-                                    <i className="fas fa-caret-square-down"/>
-                                </button>
-                                <div className="modal fade" id={`ChangeStatus${this.props.orderID}`} tabIndex={-1} aria-labelledby="example" aria-hidden="true">
-                                    <div className="modal-dialog">
-                                        <div className="modal-content">
-                                            <div className="modal-header">
-                                                <h5 className="modal-title" id="exampleModalLabel">Chọn trạng thái đơn hàng:</h5>
-                                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                                    <span className="text-danger" aria-hidden="true">
-                                                        <i className=" fas fa-times-circle"/>
-                                                    </span>
-                                                </button>
-                                            </div>
-                                            <div className="modal-body">
-                                                <div className="form-group">
-                                                    <select onChange={this.ChangeHandle} name="status" className="form-control" >
-                                                        <option value="Pending" disable="true" defaultValue>Chờ xác nhận</option>
-                                                        <option value="Shipping">Đang vận chuyển</option>
-                                                        <option value="Finish">Đã giao thành công</option>
-                                                    </select>
-                                                </div>
-                                                <button onClick={() => this.submitStatus()} data-dismiss="modal" aria-label="Close" type="button" className="btn btn-primary">
-                                                    <i className="far fa-save"/>Lưu
-                                                </button>
-                                            </div>
+                    {(this.state.status !== 'Cancel') 
+                    ?(<div>
+                        <button type="button" className="btn btn-warning" data-toggle="modal" data-target={`#ChangeStatus${this.props.orderID}`}>
+                            <i className="fas fa-caret-square-down"/>
+                        </button>
+                        <div className="modal fade" id={`ChangeStatus${this.props.orderID}`} tabIndex={-1} aria-labelledby="example" aria-hidden="true">
+                            <div className="modal-dialog">
+                                <div className="modal-content">
+                                    <div className="modal-header">
+                                        <h5 className="modal-title" id="exampleModalLabel">Chọn trạng thái đơn hàng:</h5>
+                                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                                            <span className="text-danger" aria-hidden="true">
+                                                <i className=" fas fa-times-circle"/>
+                                            </span>
+                                        </button>
+                                    </div>
+                                    <div className="modal-body">
+                                        <div className="form-group">
+                                            <select onChange={this.ChangeHandle} name="status" className="form-control" >
+                                                <option value="Pending" disable="true" defaultValue>Chờ xác nhận</option>
+                                                <option value="Shipping">Đang vận chuyển</option>
+                                                <option value="Finish">Đã giao thành công</option>
+                                            </select>
                                         </div>
+                                        <button onClick={() => this.submitStatus()} data-dismiss="modal" aria-label="Close" type="button" className="btn btn-primary">
+                                            <i className="far fa-save"/>Lưu
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-                        ) 
-                        : 
-                        (
-                            <button disabled type="button" className="btn btn-warning" >
-                                <i className="fas fa-caret-square-down"/>
-                            </button>
-                        )
-                    }
+                        </div>
+                    </div>) 
+                    : (<button disabled type="button" className="btn btn-warning" >
+                            <i className="fas fa-caret-square-down"/>
+                       </button>)}
                 </td>
 
                 <td>
-                    {(this.props.status === 'Cancel') ? <button disabled type="button" className="btn btn-danger" >
+                    {(this.props.status === 'Cancel') 
+                    ? <button disabled type="button" className="btn btn-danger" >
                         <i className="fa fa-trash-alt"></i>
-                    </button> : <button onClick={() => this.cancelOrder()} type="button" className="btn btn-danger" >
+                      </button>
+                    : <button onClick={() => this.cancelOrder()} type="button" className="btn btn-danger" >
                         <i className="fa fa-trash-alt"></i>
-                    </button>}
+                      </button>}
                 </td>
-
-            </tr>
-        );
+            </tr>);
     }
 }
 

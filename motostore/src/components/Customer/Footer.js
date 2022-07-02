@@ -83,7 +83,7 @@ class Footer extends Component {
                     </div>
                     <hr className="mb-0" />
                     <div className="py-3">
-                       <img src="ic_motor.png" height={50} alt="cdw"/> <p>Copyright 2022</p>
+                       <img src="ic_motor.gif" height={50} alt="cdw"/> <p style={{color:'black'}}>Copyright 2022</p>
                     </div>
                 </footer>
             </div>

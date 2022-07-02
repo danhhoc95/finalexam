@@ -89,9 +89,7 @@ class Cart extends Component {
                           <tr>
                             <th scope="row">Tổng Tiền:</th>
                             <td ><h5 className="font-weight-bold text-danger">{numeral(this.props.totalItemCart.sum).format('0,0')} đ</h5></td>
-
                           </tr>
-
                         </tbody>
                       </table>
                       <button onClick={() => { this.purchase() }} type="button" className="btn btn-primary"><i className="fas fa-money-check-alt"></i> Xác Nhận thanh toán</button>
@@ -102,7 +100,7 @@ class Cart extends Component {
             </div>
           </div>)
           : (<div className="text-center my-5 py-5">
-              <ImageHolder url="/emptycart.png" />
+              <ImageHolder url="/emptycart.gif" />
               <h1 className="mb-5 pb-5">Giỏ hàng trống</h1>
             </div>)}
       </div>

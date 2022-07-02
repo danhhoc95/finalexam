@@ -42,9 +42,9 @@ class FilterBar extends Component {
                         </div>
                         <div className="col-3">
                             <InputRange
-                                formatLabel={value => `${value} nghìn`}
-                                step={100}
-                                maxValue={900}
+                                formatLabel={value => `${value} triệu`}
+                                step={50}
+                                maxValue={700}
                                 minValue={100}
                                 value={this.props.filterPrice}
                                 onChange={filterPrice => this.handleChange("UPDATE_FILTER_PRICE", filterPrice)} />
@@ -64,11 +64,10 @@ class FilterBar extends Component {
                         <div className="col-2">
                             <div className="form-group">
                                 <select className="form-control"  onChange={event => this.handleChange("UPDATE_FILTER_ORIGIN", event.target.value)} >
-                                    <option value={0}>Chọn xuất xứ</option>
-                                    <option value={"Việt Nam"}>Việt Nam</option>
-                                    <option value={"Thái Lan"}>Thái Lan</option>
-                                    <option value={"Đài Loan"}>Đài Loan</option>
-                                    <option value={"Hoa Kỳ"}>Hoa Kỳ</option>
+                                    <option value={0}>Hãng</option>
+                                    <option value={"Honda"}>Honda</option>
+                                    <option value={"Suzuki"}>Suzuki</option>
+                                    <option value={"Yamaha"}>Yamaha</option>
                                 </select>
                             </div>
                         </div>

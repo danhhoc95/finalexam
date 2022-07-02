@@ -60,9 +60,9 @@ class Home extends Component {
                 listCardProducts = <ImageHolder url="/no_result.gif" />
             } else {
                 listCardProducts = this.props.listProductCustomer.map(product => {
-                    return (<div key={product.productID} className="col-lg-4 col-sm-6 mb-4">
+                    return (<div key={product.productId} className="col-lg-4 col-sm-6 mb-4">
                                 <CardProduct
-                                    productID={product.productID}
+                                    productId={product.productId}
                                     thumbnail={product.thumbnail}
                                     fullImage={product.detailImage}
                                     name={product.name}
@@ -86,8 +86,8 @@ class Home extends Component {
                                 <div className="row justify-content-center mb-4">
                                     <Pagination
                                         activePage={this.props.activePage}
-                                        firstPageText="trang đầu"
-                                        lastPageText="trang cuối"
+                                        firstPageText="Trang đầu"
+                                        lastPageText="Trang cuối"
                                         itemClass="page-item"
                                         linkClass="page-link"
                                         itemsCountPerPage={this.props.itemsCountPerPage}

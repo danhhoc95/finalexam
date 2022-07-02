@@ -72,7 +72,7 @@ class NavigationBar extends Component {
                     <NavLink onClick={() => this.redirectToHome()} 
                              className="navbar-brand" 
                              to="/">
-                        <img src="../ic_motor.png" alt="" width={50} height={50} />
+                        <img src="../ic_motor.gif" alt="cdw" width={50} height={50} /> Moto Store
                     </NavLink>
                     <button className="navbar-toggler" 
                             type="button"

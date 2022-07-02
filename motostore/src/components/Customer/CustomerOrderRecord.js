@@ -38,24 +38,16 @@ class CustomerOrderRecord extends Component {
         let orderStatusLbl;
         switch (this.props.status) {
             case "Pending":
-                orderStatusLbl = (
-                    <span className="badge badge-pill badge-secondary">Chờ xác nhận</span>
-                );
+                orderStatusLbl = ( <span className="badge badge-pill badge-secondary">Chờ xác nhận</span> );
                 break;
             case "Shipping":
-                orderStatusLbl = (
-                    <span className="badge badge-pill badge-primary">đang vận chuyển</span>
-                );
+                orderStatusLbl = ( <span className="badge badge-pill badge-primary">đang vận chuyển</span> );
                 break;
             case "Finish":
-                orderStatusLbl = (
-                    <span className="badge badge-pill badge-success">Đã nhận hàng</span>
-                );
+                orderStatusLbl = ( <span className="badge badge-pill badge-success">Đã nhận hàng</span> );
                 break;
             case "Cancel":
-                orderStatusLbl = (
-                    <span className="badge badge-pill badge-danger">Đã hủy</span>
-                );
+                orderStatusLbl = ( <span className="badge badge-pill badge-danger">Đã hủy</span> );
                 break;
             default:
                 orderStatusLbl = this.props.status;
@@ -65,7 +57,7 @@ class CustomerOrderRecord extends Component {
         let showOrderDetail;
         let productRecord;
         if (this.state.listProduct === null) {
-            showOrderDetail = ".........loading.......";
+            showOrderDetail = "loading.......";
         } else {
             productRecord = this.state.listProduct.map(product => {
                 return (

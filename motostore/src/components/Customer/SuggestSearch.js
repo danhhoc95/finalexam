@@ -109,16 +109,16 @@ class SuggestSearch extends Component {
             <Fragment>
                 <form onSubmit={this.handleSubmit} id="form-search-nav" className="form-inline ml-auto my-2 my-lg-0">
                     <div className="input-group">
-                        <span id="nav-icon-search basic-addonNavCustomer" className="input-group-text"><i className="fas fa-search"></i></span>
+                        <span id="nav-icon-search basic-addonNavCustomer" className="input-group-text"><i className="fas fa-search"/></span>
                         <input
                             onChange={onChange}
                             onKeyDown={onKeyDown}
                             value={userInput}
                             id="nav-input-search" type="text"
-                            className="form-control" placeholder="Bạn tìm gì?"
+                            className="form-control" placeholder="Bạn cần tìm gì?"
                             aria-label="Username" aria-describedby="basic-addonNavCustomer" />
                     </div>
-                    <button id="nav-btn-search" className="btn btn-outline-success my-2 my-sm-0 " type="submit">Tìm</button>
+                    <button id="nav-btn-search" className="btn btn-outline-success my-2 my-sm-0 " type="submit">Tìm sản phẩm</button>
                 {suggestionsListComponent}
                 </form>
             </Fragment>

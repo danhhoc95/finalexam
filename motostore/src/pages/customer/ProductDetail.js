@@ -27,13 +27,13 @@ class ProductDetail extends Component {
     }
 
     componentDidMount() {
-        CallAPI(`products/${this.getProductID()}`).then(res => {
+        CallAPI(`api/product/${this.getProductID()}`).then(res => {
             this.setState({ product: res.data })
         }).catch(err => {
             console.log(err);
         })
 
-        CallAPI('products/random').then(res => {
+        CallAPI('api/products/random').then(res => {
             this.setState({ productSuggest: res.data })
         })
     }

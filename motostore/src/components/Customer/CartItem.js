@@ -17,17 +17,15 @@ class CartItem extends Component {
         let userPhone = localStorage.getItem("PHONEUSERLOGINED");
         if (minus) {
             if (this.state.quantity > 1) {
-                this.setState({
-                    quantity: this.state.quantity - 1
-                })
+                this.setState({ quantity: this.state.quantity - 1 })
+
                 CallAPI(`Cart/${userPhone}`, 'PATCH', { productID: productID }).catch(() => {
                     alert("Lỗi Thêm sản phẩm vảo giỏ hàng");
                 })
             }
         } else {
-            this.setState({
-                quantity: this.state.quantity + 1
-            })
+            this.setState({ quantity: this.state.quantity + 1 })
+
             CallAPI(`Cart/${userPhone}`, 'PUT', { productID: productID }).catch(() => {
                 alert("Lỗi Thêm sản phẩm vảo giỏ hàng");
             })
@@ -46,6 +44,7 @@ class CartItem extends Component {
 
     deleteItem(productID) {
         let userPhone = localStorage.getItem("PHONEUSERLOGINED");
+
         CallAPI('Cart/${userPhone}', 'DELETE', { productID: productID }).catch(() => {
             alert("Lỗi Xóa sản phẩm");
         });
@@ -61,7 +60,6 @@ class CartItem extends Component {
 
             window.location.reload();
     }
-
 
     render() {
         var numeral = require('numeral');
@@ -98,6 +96,6 @@ class CartItem extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-});
+const mapStateToProps = state => ({ });
+
 export default connect(mapStateToProps)(CartItem);
