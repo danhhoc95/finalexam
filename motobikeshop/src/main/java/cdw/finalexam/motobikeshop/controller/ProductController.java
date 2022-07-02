@@ -58,4 +58,10 @@ public class ProductController {
         List<Product> products = productService.GetProductsByName(productName);
         return products;
     }
+
+    @GetMapping(params = {"page"}, value = {"/search"})
+    public List<Product>  Search(@RequestParam("page") int page, String keyword){
+        List<Product> products = productService.GetProductsByName(keyword);
+        return products;
+    }
 }

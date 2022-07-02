@@ -58,12 +58,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
             http.cors().configurationSource(corsConfigurationSource())
-                    .and()
+                .and()
                 .authorizeRequests()
-                    .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
+                .requestMatchers(CorsUtils::isPreFlightRequest).permitAll()
                 .antMatchers("/api/user/login").permitAll() // Cho phép tất cả mọi người truy cập vào địa chỉ này
+                .antMatchers("/api/search").permitAll()
+                .antMatchers("/api/products").permitAll()
                 .anyRequest().authenticated()
-                    .and().httpBasic(); // Tất cả các request khác đều cần phải xác thực mới được truy cập
+                .and().httpBasic(); // Tất cả các request khác đều cần phải xác thực mới được truy cập
 
             // Thêm một lớp Filter kiểm tra jwt
             http.csrf().disable();
