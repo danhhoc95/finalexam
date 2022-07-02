@@ -20,6 +20,7 @@ import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
 @RestController
 @RequestMapping("api")
 public class AccountController {
@@ -70,7 +71,7 @@ public class AccountController {
         return iUserService.save(user);
     }
 
-    @PostMapping("/login")
+    @PostMapping("/user/login")
     public LoginResponse authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
         // Xác thực từ username và password.
         Authentication authentication = authenticationManager.authenticate(
