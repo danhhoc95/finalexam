@@ -8,4 +8,5 @@ public interface ICartService {
     List<CartItem> findAll();
     List<CartItem> findByPhone(String phone);
     CartItem save (CartItem cart);
+    void remove(CartItem cartItem);
 }

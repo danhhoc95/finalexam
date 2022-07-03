@@ -1,5 +1,6 @@
 package cdw.finalexam.motobikeshop.service;
 
+import cdw.finalexam.motobikeshop.Entity.CartId;
 import cdw.finalexam.motobikeshop.Entity.CartItem;
 import cdw.finalexam.motobikeshop.Entity.ProductOrder;
 import cdw.finalexam.motobikeshop.repository.ICartRepository;
@@ -25,6 +26,11 @@ public class CartService implements  ICartService{
     @Override
     public CartItem save(CartItem cart) {
         return iCartRepository.save(cart);
+    }
+
+    @Override
+    public void remove(CartItem cartItem) {
+        iCartRepository.delete(cartItem);
     }
 
 
