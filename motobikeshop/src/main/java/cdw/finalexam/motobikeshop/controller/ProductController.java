@@ -1,7 +1,5 @@
 package cdw.finalexam.motobikeshop.controller;
 
-import cdw.finalexam.motobikeshop.Entity.FilterCondition;
-import cdw.finalexam.motobikeshop.Entity.Payload.ProductResponse;
 import cdw.finalexam.motobikeshop.Entity.Product;
 import cdw.finalexam.motobikeshop.Entity.SearchProduct;
 import cdw.finalexam.motobikeshop.Entity.User;
@@ -10,27 +8,20 @@ import cdw.finalexam.motobikeshop.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.NotNull;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin(origins = "http://localhost:8080", maxAge = 3600)
 @RestController
 @RequestMapping("api")
 public class ProductController {
 
-    int PAGE_SIZE = 6;
     @Autowired
     private IProductService productService;
 
     @GetMapping(value = { "/products"})
-    public ProductResponse getAllProducts() {
+    public List<Product> getAllProducts() {
         List<Product> products = productService.findAll();
-        ProductResponse response = new ProductResponse();
-        response.setList(products);
-        response.setPageSize(PAGE_SIZE);
-        response.setTotalItem(products.size());
-        return response;
+        return products;
     }
 
     @GetMapping(value = { "/product/{id}"})
@@ -60,12 +51,26 @@ public class ProductController {
         return products;
     }
 
-    @PostMapping(value = {"/search"})
-    public List<Product>  Search(FilterCondition condition){
-        // Đổi đơn vị
-        condition.priceRange.min = condition.priceRange.min * 1000;
-        condition.priceRange.max = condition.priceRange.max * 1000;
-
-        return null;
+    @GetMapping(value = { "/product/filter"})
+    public List<Product> filterProducts(@RequestBody SearchProduct searchProduct) {
+        List<Product> products = productService.filterData(searchProduct.getMinPrice(), searchProduct.getMaxPrice(),
+                searchProduct.getMinHeight(), searchProduct.getMaxHeight(),searchProduct.getOrigin());
+        return products;
     }
+
+    @PostMapping("/product/add")
+    public Product createProduct(@RequestBody Product product){
+        return productService.save(product);
+    }
+
+    @PostMapping("/product/update")
+    public Product updateProduct(@RequestBody Product product){
+        return productService.save(product);
+    }
+
+    @PostMapping("/product/delete")
+    public void deleteProduct(@RequestBody Product product){
+        productService.remove(product.getProductId());
+    }
+
 }

@@ -48,4 +48,9 @@ public class ProductService implements  IProductService{
     public List<Product> GetProductsByName(String name) {
         return iProductRepository.GetProductsByName(name);
     }
+
+    @Override
+    public List<Product> filterData(int minPrice, int maxPrice, int minHeight, int maxHeight, String origin) {
+        return iProductRepository.filterData(minPrice,maxPrice,minHeight,maxHeight,origin);
+    }
 }
