@@ -7,11 +7,13 @@ import javax.persistence.*;
 @Data
 public class CartItem {
 
+
+//    @GeneratedValue(strategy= GenerationType.AUTO, generator="my_CartItem_seq_gen")
+//    @SequenceGenerator(name="my_CartItem_seq_gen", sequenceName="MY_CARTITEM_SEQ")
+//    private int cartId;
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO, generator="my_CartItem_seq_gen")
-    @SequenceGenerator(name="my_CartItem_seq_gen", sequenceName="MY_CARTITEM_SEQ")
-    private int cartId;
     private int productId;
+    @Id
     private String phone;
     private int quantity;
 
