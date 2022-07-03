@@ -38,3 +38,8 @@ VALUES (1, 'CB1000R 2021',510000000,10,'https://cdn.honda.com.vn/motorbikes/Dece
        (28, 'SH ',160000000,5,'https://cdn.honda.com.vn/motorbikes/December2021/UwU4ep22LakmSoqcw7AO.jpg','', '','88','honda'),
        (29, 'vision ',60000000,5,'https://cdn.honda.com.vn/motorbikes/December2021/UwU4ep22LakmSoqcw7AO.jpg','', '','80','honda'),
        (30, 'SH ',160000000,5,'https://cdn.honda.com.vn/motorbikes/December2021/UwU4ep22LakmSoqcw7AO.jpg','', '','88','honda');
+
+
+INSERT INTO product_order (order_Id, phone_number, address, create_date, total_Money,order_status, payment_Method)
+VALUES (1,'0375242475','102 dang van bi', '2022-07-02', 10000000, 'hoanthanh', ''),
+       (2,'0375242475','102 dang van bi', '2022-07-02', 10000000, 'hoanthanh', '');
