@@ -92,14 +92,6 @@ class NavigationBar extends Component {
                                     <i className="fas fa-home"/> Trang chủ
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink onClick={() => this.redirectToHome()} 
-                                         activeClassName="NavItemActive" 
-                                         className="nav-link NavItem" 
-                                         to="/product">
-                                    <i class="fa-solid fa-motorcycle"></i> Sản phẩm
-                                </NavLink>
-                            </li>
                             {showProfileButton}
                             {showLoginBtn}
                             {showRegister}

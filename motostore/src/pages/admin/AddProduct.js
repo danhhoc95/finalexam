@@ -97,8 +97,11 @@ class AddProduct extends Component {
             <div>
                 <div className="container">
                     <div className="row">
-                        <div className="col-12 text-center">
-                            <h1 className="mt-2">Thêm mới 1 sản phẩm</h1>
+                        <div className="col-6">
+                            <h1 className="mt-2 text-left">Thêm mới sản phẩm</h1>
+                        </div>
+                        <div className="col-6 text-right">
+                            <button style={{ fontSize: 20 }} type="submit" className="btn btn-primary right"><i className="fas fa-save"></i> Lưu</button>
                         </div>
                         <form onSubmit={this.handleSubmit} id="create-course-form" className="col-12">
                             <div className="form-group">
@@ -214,11 +217,6 @@ class AddProduct extends Component {
                                         bullist numlist outdent indent | removeformat | help'
                                 }}
                                 onEditorChange={this.handleEditorChange}/>
-                            <div className="row mt-3 mb-5">
-                                <div className="col-12 text-center">
-                                    <button style={{ fontSize: 30 }} type="submit" className="btn btn-primary btn-lg"><i className="fas fa-save"></i> Lưu</button>
-                                </div>
-                            </div>
                         </form>
                     </div>
                 </div>

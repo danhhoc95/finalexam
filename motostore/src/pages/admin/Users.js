@@ -12,12 +12,11 @@ class Users extends Component {
             totalItem: 0,
             pageSize: 0,
             activePage: 1
-
         }
     }
 
     componentDidMount() {
-        CallAPI(`Users`, null, { role: "Member", page: 1 }).then(res => {
+        CallAPI(`api/users/user`, null, { }).then(res => {
             this.setState({
                 list: res.data.list,
                 pageSize: res.data.pageSize,
@@ -31,7 +30,7 @@ class Users extends Component {
 
     handlePageChange(pageNumber) {
         this.setState({ activePage: pageNumber });
-        CallAPI(`Users`, null, { role: "Member", page: pageNumber }).then(res => {
+        CallAPI(`api/users/user`, null, { }).then(res => {
             this.setState({
                 list: res.data.list,
                 pageSize: res.data.pageSize,
@@ -47,21 +46,16 @@ class Users extends Component {
         let records;
         if (this.state.list !== null) {
             records = this.state.list.map(user => {
-                return (
-                    <tr key={user.phone}>
-                        <th scope="row">{user.phone}</th>
-                        <td>{user.name}</td>
-                        <td ><span
-                        className="d-inline-block text-truncate" style={{ width: 300 }}
-                        data-toggle="tooltip" data-placement="top" title={user.address}
-                        >{user.address}</span></td>
-                        <td>{unixTimeToDate(user.timestamp)}</td>
-                    </tr>
-                )
+                return (<tr key={user.phoneNumber}>
+                            <th scope="row">{user.phoneNumber}</th>
+                            <td>{user.userName}</td>
+                            <td ><span className="d-inline-block text-truncate" style={{ width: 300 }} data-toggle="tooltip" data-placement="top" title={user.address}>{user.address}</span></td>
+                            <td>{unixTimeToDate(user.createdDate)}</td>
+                        </tr>)
             })
-         } else {
-             records = <Loading url="loading.gif"/>
-         }
+        } else {
+            records = <Loading url="loading.gif"/>
+        }
 
         return (
             <div>
@@ -83,8 +77,8 @@ class Users extends Component {
 
                         <Pagination
                             activePage={this.state.activePage}
-                            firstPageText="trang đầu"
-                            lastPageText="trang cuối"
+                            firstPageText="Trang đầu"
+                            lastPageText="Trang cuối"
                             itemClass="page-item"
                             linkClass="page-link"
                             itemsCountPerPage={this.state.pageSize}

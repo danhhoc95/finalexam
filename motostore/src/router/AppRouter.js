@@ -13,7 +13,7 @@ import Profile from '../pages/customer/Profile';
 import Purchase from '../pages/customer/Purchase';
 //layout
 import CustomerLayout from '../layout/Customer';
-import AdminLayout from '../layout/Customer';
+import AdminLayout from '../layout/Admin';
 // Admin
 import Orders from '../pages/admin/Orders';
 import TransactionHistory from '../pages/admin/TransactionHistory';

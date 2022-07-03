@@ -21,7 +21,7 @@ class Products extends Component {
     }
 
     fetchData(page) {
-        CallAPI('Products/Admin', null, { page: page }).then(res => {
+        CallAPI('api/products', null, { }).then(res => {
             this.setState({
                 listProduct: res.data.list,
                 pageSize: res.data.pageSize,
@@ -40,8 +40,8 @@ class Products extends Component {
         if (this.state.listProduct != null) {
             showListProduct = this.state.listProduct.map(product => {
                 return <ProductItem
-                    key={product.productID}
-                    productID={product.productID}
+                    key={product.productId}
+                    productID={product.productId}
                     thumbnail={product.thumbnail}
                     name={product.name}
                     price={product.price}
@@ -61,7 +61,7 @@ class Products extends Component {
                             <th scope="col">Thumbnail</th>
                             <th scope="col">Tên</th>
                             <th scope="col">Giá(đ)</th>
-                            <th scope="col">Số lượng(cây)</th>
+                            <th scope="col">Số lượng</th>
                             <th scope="col">Chiều cao(cm)</th>
                             <th scope="col">Xuất xứ</th>
                             <th scope="col">Mô tả</th>
@@ -78,8 +78,8 @@ class Products extends Component {
                     <div className="row d-flex justify-content-center">
                         <Pagination
                             activePage={this.state.activePage}
-                            firstPageText="trang đầu"
-                            lastPageText="trang cuối"
+                            firstPageText="Trang đầu"
+                            lastPageText="Trang cuối"
                             itemClass="page-item"
                             linkClass="page-link"
                             itemsCountPerPage={this.state.pageSize}

@@ -104,7 +104,7 @@ class CustomerOrderRecord extends Component {
                         </button>
                         <div className="modal fade" id={`viewDetailList${this.props.orderID}`} tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div className="modal-dialog">
-                                <div className="modal-content">st
+                                <div className="modal-content">
                                     <div className="modal-header">
                                         <h5 className="modal-title" id="exampleModalLabel">Chi tiết đơn hàng #{this.props.orderID}</h5>
                                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">

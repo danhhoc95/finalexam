@@ -30,12 +30,12 @@ class AdminLogin extends Component {
     handleSubmit(event) {
         event.preventDefault();
         let body = {
-            phone: this.state.phone,
+            phonenumber: this.state.phone,
             password: this.state.password,
         }
-        CallAPI('Users/login', 'POST', { rememberLogin: this.state.rememberLogin }, body).then(res => {
-            if (res.data.role.localeCompare("Admin")===0) {
-                localStorage.setItem("token", res.data.token);
+        CallAPI('api/user/login', 'POST', { }, body).then(res => {
+            if (res.data.permission.localeCompare("admin")===0) {
+                localStorage.setItem("token", res.data.accessToken);
                 this.props.dispatch({ type: "UPDATE_ADMIN_LOGIN", data: true });
                 localStorage.setItem("adminLogined",true);
                 this.props.history.push('/admin')

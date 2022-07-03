@@ -3,6 +3,7 @@ package cdw.finalexam.motobikeshop.controller;
 import cdw.finalexam.motobikeshop.Entity.CustomUserDetails;
 import cdw.finalexam.motobikeshop.Entity.Payload.LoginRequest;
 import cdw.finalexam.motobikeshop.Entity.Payload.LoginResponse;
+import cdw.finalexam.motobikeshop.Entity.Payload.Payload;
 import cdw.finalexam.motobikeshop.Entity.User;
 import cdw.finalexam.motobikeshop.exception.AlreadyExistsException;
 import cdw.finalexam.motobikeshop.exception.NotFoundDataException;
@@ -35,15 +36,23 @@ public class AccountController {
     private IUserService iUserService;
 
     @GetMapping(value = { "/users"})
-    public List<User> getAllUsers() {
+    public Payload<User> getAllUsers() {
         List<User> users = iUserService.findAll();
-        return users;
+        Payload<User> response = new Payload<User>();
+        response.setList(users);
+        response.setTotalItem(users.size());
+        response.setPageSize(6);
+        return response;
     }
 
     @GetMapping(value = { "/users/{role}"})
-    public List<User> getAllAccountsByRole(@PathVariable("role") String role) {
+    public Payload<User> getAllAccountsByRole(@PathVariable("role") String role) {
         List<User> users = iUserService.findAllByRole(role);
-        return users;
+        Payload<User> response = new Payload<User>();
+        response.setList(users);
+        response.setTotalItem(users.size());
+        response.setPageSize(6);
+        return response;
     }
 
     @GetMapping("/user/{phone}")

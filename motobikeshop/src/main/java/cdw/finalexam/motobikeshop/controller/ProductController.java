@@ -1,9 +1,8 @@
 package cdw.finalexam.motobikeshop.controller;
 
-import cdw.finalexam.motobikeshop.Entity.Payload.ProductResponse;
+import cdw.finalexam.motobikeshop.Entity.Payload.Payload;
 import cdw.finalexam.motobikeshop.Entity.Product;
 import cdw.finalexam.motobikeshop.Entity.SearchProduct;
-import cdw.finalexam.motobikeshop.Entity.User;
 import cdw.finalexam.motobikeshop.exception.NotFoundDataException;
 import cdw.finalexam.motobikeshop.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +19,9 @@ public class ProductController {
     private IProductService productService;
 
     @GetMapping(value = { "/products"})
-    public ProductResponse getAllProducts() {
+    public Payload<Product> getAllProducts() {
         List<Product> products = productService.findAll();
-        ProductResponse response = new ProductResponse();
+        Payload<Product> response = new Payload<Product>();
         response.setList(products);
         response.setTotalItem(products.size());
         response.setPageSize(6);
