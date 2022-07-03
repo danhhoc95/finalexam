@@ -29,7 +29,7 @@ class OTPRegister extends Component {
             }],
             callbacks: {
                 signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-                    CallAPI('Users/register', 'POST', null, user).then(res => {
+                    CallAPI('api/users/add', 'POST', null, user).then(res => {
                         localStorage.removeItem("userRegister");
                         alert('Đăng kí tài khoản thành công, mời bạn đăng nhập');
                     }).catch(res=>{

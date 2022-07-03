@@ -33,7 +33,7 @@ class Register extends Component {
     handleSubmit(event) {
         event.preventDefault();
         let body = {
-            phone: this.state.phone,
+            phonenumber: this.state.phone,
             password: this.state.password
         }
 
@@ -43,8 +43,8 @@ class Register extends Component {
                 messageFailed: "Mật khẩu tối thiểu 6 kí tự"
             })
         } else if (this.state.password === this.state.retypePassword) {
-            CallAPI('Users/check-exist', 'POST', null, body).then(res => {
-                if (res.data) {
+            CallAPI('api/user/exits', 'POST', null, body).then(res => {
+                if (!res.data) {
                     this.setState({
                         showMessage: true,
                         messageFailed: "Số điện thoại đã được đăng kí"
@@ -56,7 +56,6 @@ class Register extends Component {
                     }
                     localStorage.setItem("userRegister", JSON.stringify(userRegister));
                     setTimeout(this.props.history.push('/otp-register'), 2000);
-
                 }
             }).catch(
                 err => {
@@ -92,7 +91,7 @@ class Register extends Component {
                         <div className="col-lg-4 col-sm-12">
                             <form onSubmit={this.handleSubmit}>
                                 <div className="text-center mb-5">
-                                    <i style={{ fontSize: 80 }} className="fas fa-user-plus"></i>
+                                    <img className="img-fluid" alt="error" src="/addNewUser.gif"></img>
                                 </div>
 
                                 {loginFailedMessage}
@@ -124,7 +123,7 @@ class Register extends Component {
                                 <button className="mt-4 boder-style btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Đăng kí</button>
 
                                 <div className="text-center my-3">
-                                    <span>đã có tài khoản? </span><Link to="/login" className="badge badge-pill badge-success"> Đăng nhập ngay</Link>
+                                    <span>Đã có tài khoản? </span><Link to="/login" className="badge badge-success"> Đăng nhập ngay</Link>
                                 </div>
                             </form>
                         </div>

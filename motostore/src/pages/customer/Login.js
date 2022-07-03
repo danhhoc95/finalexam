@@ -85,7 +85,7 @@ class Login extends Component {
                         <div className="col-lg-4 col-sm-12">
                             <form onSubmit={this.handleSubmit}>
                                 <div className="text-center mb-5">
-                                    <i style={{ fontSize: 80 }} className="far fa-user"></i>
+                                    <img className="img-fluid" alt="error" src="/login.gif"/>
                                 </div>
 
                                 {showFocusLoginToBuy}
@@ -98,7 +98,7 @@ class Login extends Component {
                                         max={9999999999}
                                         name="phonenumber"
                                         onChange={this.handleInputChange}
-                                        type="number" className="form-control  boder-style" placeholder="09xxxxxxxx" autoFocus required />
+                                        type="number" className="form-control boder-style" placeholder="09xxxxxxxx" autoFocus required />
                                 </div>
                                 <div className="mt-2 form-label-group">
                                     <label htmlFor="inputPassword">Mật khẩu</label>
@@ -119,7 +119,7 @@ class Login extends Component {
                                 </div>
 
                                 <div className="text-center my-3">
-                                    <span>Chưa có tài khoản? </span><Link to="/register" className="badge badge-pill badge-success"> Đăng kí ngay</Link>
+                                    <span>Chưa có tài khoản? </span><Link to="/register" className="badge badge-success"> Đăng kí ngay</Link>
                                 </div>
                             </form>
                         </div>

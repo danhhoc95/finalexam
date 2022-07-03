@@ -1,3 +1,7 @@
 .boder-style{
-    border-radius: 50px;
+    border-radius: 0.5em;
+}
+
+.badge{
+    padding: 0.7em;
 }

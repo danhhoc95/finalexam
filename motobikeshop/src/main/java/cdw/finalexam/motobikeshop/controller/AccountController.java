@@ -57,13 +57,23 @@ public class AccountController {
 
     @PostMapping("/user/add")
     public User addAccount(@RequestBody User user) {
-        Optional<User> us = iUserService.findById(user.getUserName());
+        Optional<User> us = iUserService.findById(user.getPhoneNumber());
         if (!us.isEmpty()) {
             throw new AlreadyExistsException("Account is exists");
         }
         String password = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt(12));
         user.setPassword(password);
         return iUserService.save(user);
+    }
+
+    @PostMapping("user/exits")
+    public boolean UserExits(@RequestBody LoginRequest loginRequest){
+        Optional<User> us = iUserService.findById(loginRequest.getPhonenumber());
+        if (!us.isEmpty()) {
+            return false;
+        }else {
+            return true;
+        }
     }
 
     @PostMapping("/user/update")
