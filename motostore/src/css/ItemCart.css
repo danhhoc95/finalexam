@@ -1,9 +1,18 @@
 #PlusItemCart{
-border-top-left-radius: 0 !important;
-border-bottom-left-radius: 0 !important;
+    background-color: white;
+    border: 0em;
+    border-top-left-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
 }
 
-    #MinusItemCart{
+#MinusItemCart{
+    background-color: white;
+    border: 0em;
     border-top-right-radius: 0 !important;
-border-bottom-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.quantity{
+    background-color: white;
+    border: 0em;
 }

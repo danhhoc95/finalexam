@@ -1,1 +1,6 @@
 .sticky-top { top: 100px; }
+
+.card{
+    border-radius: 1em;
+    box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  }

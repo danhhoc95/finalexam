@@ -81,7 +81,7 @@ class CartItem extends Component {
                             min={1}
                             max={9999}
                             value={this.state.quantity} disabled
-                            className="fw-bold" />
+                            className="quantity fw-bold" />
                         <button onClick={() => this.handleClick(this.props.productID, false)} name="plus" id="PlusItemCart" type="button" className="btn btn-light"><i className="fas fa-plus"/></button>
                     </div>
                 </td>
@@ -89,7 +89,7 @@ class CartItem extends Component {
                     =  {numeral(this.props.price * this.state.quantity).format('0,0')} đ
                 </td>
                 <td>
-                    <button onClick={() => this.deleteItem(this.props.productID)} type="button" className=" ml-5 btn btn-secondary"><i className="fas fa-trash-alt"/> xóa</button>
+                    <button onClick={() => this.deleteItem(this.props.productID)} type="button" className=" ml-5 btn btn-danger"><i className="fas fa-trash-alt"/> Xóa</button>
                 </td>
             </tr>
         );

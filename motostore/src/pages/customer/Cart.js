@@ -16,12 +16,12 @@ class Cart extends Component {
 
   componentDidMount() {
     let userPhone = localStorage.getItem("PHONEUSERLOGINED");
-    CallAPI(`Cart/${userPhone}`).then(res => {
+    CallAPI(`api/cart/${userPhone}`).then(res => {
       this.setState({
         listItem: res.data
       })
     }).catch(() => {
-      console.log("LỖI LẤY DANH SÁCH GIỎ HÀNG");
+      console.log("Lấy danh sách giở hàng không thành công");
     })
   }
 
@@ -34,7 +34,7 @@ class Cart extends Component {
         this.props.history.push('/purchase');
       })
       .catch(() => {
-        alert("LỖI THANH TOÁN ! Hãy Xóa cache, LOCALSTORAGE, Ctrl+F5 & dùng tab ẩn danh");
+        alert("Lỗi thanh toán!");
       })
     window.location.replace(process.env.REACT_APP_DOMAIN + "purchase");
   }
@@ -69,10 +69,10 @@ class Cart extends Component {
                     </tbody>
                   </table>
                 </div>
-                <div className=" col-lg-4 col-sm-12 col-md-12 text-center">
+                <div className="col-lg-4 col-sm-12 col-md-12 text-center">
                   <div className="mx-5 card sticky-top" >
                     <div className="card-body">
-                      <h5 className="card-title">Thành tiền: </h5>
+                      <h5 className="card-title">Thành tiền</h5>
                       <table className="table ">
                         <thead>
                           <tr>
@@ -82,17 +82,16 @@ class Cart extends Component {
                         </thead>
                         <tbody>
                           <tr>
-                            <th scope="row">Phí Ship:</th>
+                            <th scope="row">Phí vận chuyển:</th>
                             <td ><h5 className="font-weight-bold text-danger">miễn phí</h5></td>
-
                           </tr>
                           <tr>
-                            <th scope="row">Tổng Tiền:</th>
+                            <th scope="row">Tổng tiền:</th>
                             <td ><h5 className="font-weight-bold text-danger">{numeral(this.props.totalItemCart.sum).format('0,0')} đ</h5></td>
                           </tr>
                         </tbody>
                       </table>
-                      <button onClick={() => { this.purchase() }} type="button" className="btn btn-primary"><i className="fas fa-money-check-alt"></i> Xác Nhận thanh toán</button>
+                      <button onClick={() => { this.purchase() }} type="button" className="btn btn-primary"><i className="fas fa-money-check-alt"/> Thanh toán</button>
                     </div>
                   </div>
                 </div>
