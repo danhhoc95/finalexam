@@ -33,10 +33,7 @@ class NavigationBar extends Component {
                              activeClassName="NavItemActive" 
                              className="nav-link NavItem" 
                              to="/profile">
-                        <i className="fas fa-user-alt"/> 
-                        <span>
-                            Tài khoản - <span style={{ fontWeight: 900 }}> {this.props.customerNameWellcome} </span>
-                        </span>
+                        <i className="fas fa-user-alt"/> <span>Tài khoản - <span style={{ fontWeight: 900 }}> {this.props.customerNameWellcome} </span></span>
                     </NavLink>
                 </li>);
         }

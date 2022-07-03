@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from 'react-redux';
 import CallAPI from '../../RESTFull/BaseApi';
-import '../../css/suggestSearch.css';
+import '../../css/SuggestSearch.css';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 class SuggestSearch extends Component {
@@ -65,9 +65,7 @@ class SuggestSearch extends Component {
     };
 
     onClick = e => {
-        this.setState({
-            userInput: ""
-        })
+        this.setState({ userInput: "" })
     };
 
     render() {
@@ -109,12 +107,11 @@ class SuggestSearch extends Component {
             <Fragment>
                 <form onSubmit={this.handleSubmit} id="form-search-nav" className="form-inline ml-auto my-2 my-lg-0">
                     <div className="input-group">
-                        <span id="nav-icon-search basic-addonNavCustomer" className="input-group-text"><i className="fas fa-search"/></span>
                         <input
                             onChange={onChange}
                             onKeyDown={onKeyDown}
                             value={userInput}
-                            id="nav-input-search" type="text"
+                            id="nav-input-search" type="search"
                             className="form-control" placeholder="Bạn cần tìm gì?"
                             aria-label="Username" aria-describedby="basic-addonNavCustomer" />
                     </div>

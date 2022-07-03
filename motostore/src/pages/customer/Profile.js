@@ -100,7 +100,7 @@ class Profile extends Component {
                                     <th scope="col">Địa chỉ</th>
                                     <th scope="col">Tổng tiền</th>
                                     <th scope="col">Xem chi tiết</th>
-                                    <th scope="col">hủy đơn hàng</th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -110,8 +110,8 @@ class Profile extends Component {
                         <span></span>
                         <Pagination
                             activePage={this.state.activePage}
-                            firstPageText="trang đầu"
-                            lastPageText="trang cuối"
+                            firstPageText="Trang đầu"
+                            lastPageText="Trang cuối"
                             itemClass="page-item"
                             linkClass="page-link"
                             itemsCountPerPage={this.state.pageSize}
