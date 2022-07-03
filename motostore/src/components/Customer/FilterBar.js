@@ -18,7 +18,7 @@ class FilterBar extends Component {
             priceRange: this.props.filterPrice,
             heightRange: this.props.filterHeight,
         }
-        CallAPI('products/filter', 'POST', { page: this.props.activePage }, condition).then(res => {
+        CallAPI('api/products/filter', 'POST', { }, condition).then(res => {
             this.props.dispatch({ type: "FETCH_CUSTOMER_LIST_PRODUCT", data: res.data.list });
             this.props.dispatch({ type: "UPDATE_ITEMS_COUNT_PER_PAGE", data: res.data.pageSize });
             this.props.dispatch({ type: "UPDATE_TOTAL_ITEMS_COUNT", data: res.data.totalItem });

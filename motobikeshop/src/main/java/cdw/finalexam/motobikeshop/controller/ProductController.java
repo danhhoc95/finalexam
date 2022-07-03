@@ -1,5 +1,6 @@
 package cdw.finalexam.motobikeshop.controller;
 
+import cdw.finalexam.motobikeshop.Entity.FilterCondition;
 import cdw.finalexam.motobikeshop.Entity.Payload.ProductResponse;
 import cdw.finalexam.motobikeshop.Entity.Product;
 import cdw.finalexam.motobikeshop.Entity.SearchProduct;
@@ -59,9 +60,12 @@ public class ProductController {
         return products;
     }
 
-    @GetMapping(params = {"page"}, value = {"/search"})
-    public List<Product>  Search(@RequestParam("page") int page, String keyword){
-        List<Product> products = productService.GetProductsByName(keyword);
-        return products;
+    @PostMapping(value = {"/search"})
+    public List<Product>  Search(FilterCondition condition){
+        // Đổi đơn vị
+        condition.priceRange.min = condition.priceRange.min * 1000;
+        condition.priceRange.max = condition.priceRange.max * 1000;
+
+        return null;
     }
 }
