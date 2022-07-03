@@ -1,5 +1,6 @@
 package cdw.finalexam.motobikeshop.controller;
 
+import cdw.finalexam.motobikeshop.Entity.Payload.ProductResponse;
 import cdw.finalexam.motobikeshop.Entity.Product;
 import cdw.finalexam.motobikeshop.Entity.SearchProduct;
 import cdw.finalexam.motobikeshop.Entity.User;
@@ -19,9 +20,13 @@ public class ProductController {
     private IProductService productService;
 
     @GetMapping(value = { "/products"})
-    public List<Product> getAllProducts() {
+    public ProductResponse getAllProducts() {
         List<Product> products = productService.findAll();
-        return products;
+        ProductResponse response = new ProductResponse();
+        response.setList(products);
+        response.setTotalItem(products.size());
+        response.setPageSize(6);
+        return response;
     }
 
     @GetMapping(value = { "/product/{id}"})
