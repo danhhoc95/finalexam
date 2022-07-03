@@ -12,13 +12,20 @@ class CardProduct extends Component {
 
         var addCart = productID => {
             let userPhone = localStorage.getItem("PHONEUSERLOGINED");
+
+            let body = {
+                phone: userPhone,
+                productId: productID,
+                quantity:1
+            }
+
             if (userPhone === null) {
                 localStorage.setItem("FOCUS_LOGIN_TO_BUY", true);
-                window.location.replace(process.env.REACT_APP_DOMAIN + "login");
+                window.location.replace("login");
             } else {
-                CallAPI(`Cart/${userPhone}`, 'PUT', { productID: productID }).then(() => {
+                CallAPI(`api/cart/add`, 'POST', {}, body).then(() => {
                     console.log(`thêm ${productID} thành công`);
-                    CallAPI(`Cart/count/${userPhone}`, 'GET', { productID: productID }).then(
+                    CallAPI(`api/cart/count/${userPhone}`, 'GET').then(
                         res => {
                             this.props.dispatch({ type: "UPDATE_TOTAL_ITEM_CART", data: res.data });
                             localStorage.setItem("TOTAL_ITEM_CART", res.data.count);
@@ -65,7 +72,7 @@ class CardProduct extends Component {
                                 <i className="fas fa-eye"/> Xem chi tiết
                             </button>
                         </a>
-                        <button onClick={() => { addCart(this.props.productID) }} type="button" className="btn btn-cart-product">
+                        <button onClick={() => { addCart(this.props.productId) }} type="button" className="btn btn-cart-product">
                             <i className="fas fa-cart-plus"/> Thêm vào giỏ hàng
                         </button>
                     </div>

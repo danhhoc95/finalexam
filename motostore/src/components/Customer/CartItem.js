@@ -19,45 +19,47 @@ class CartItem extends Component {
             if (this.state.quantity > 1) {
                 this.setState({ quantity: this.state.quantity - 1 })
 
-                CallAPI(`Cart/${userPhone}`, 'PATCH', { productID: productID }).catch(() => {
-                    alert("Lỗi Thêm sản phẩm vảo giỏ hàng");
+                CallAPI(`api/cart/sub/${userPhone}`, 'POST', { }, productID)
+                .then()
+                .catch(() => {
+                    alert("Lỗi khi thêm sản phẩm vảo giỏ hàng");
                 })
             }
         } else {
             this.setState({ quantity: this.state.quantity + 1 })
 
-            CallAPI(`Cart/${userPhone}`, 'PUT', { productID: productID }).catch(() => {
-                alert("Lỗi Thêm sản phẩm vảo giỏ hàng");
+            CallAPI(`api/cart/plus/${userPhone}`, 'POST', { }, productID )
+            .then()
+            .catch(() => {
+                alert("Lỗi khi thêm sản phẩm vảo giỏ hàng");
             })
         }
 
-        CallAPI(`Cart/count/${userPhone}`).then(
+        CallAPI(`api/cart/count/${userPhone}`).then(
             res => {
                 this.props.dispatch({ type: "UPDATE_TOTAL_ITEM_CART", data: res.data });
                 localStorage.setItem("TOTAL_ITEM_CART",res.data.count);
                 localStorage.setItem("SUM_CART",res.data.sum);
             }).catch(() => {
-                alert("Lỗi lấy tổng sản phẩm giỏ hàng");
+                alert("Tổng sản phẩm giỏ hàng không đúng");
             })
     }
-
 
     deleteItem(productID) {
         let userPhone = localStorage.getItem("PHONEUSERLOGINED");
 
-        CallAPI('Cart/${userPhone}', 'DELETE', { productID: productID }).catch(() => {
-            alert("Lỗi Xóa sản phẩm");
+        CallAPI(`api/cart/remove/${userPhone}`, 'DELETE', { productID: productID }).catch(() => {
+            alert("Lỗi xóa sản phẩm");
         });
 
-        CallAPI('Cart/count/${userPhone}').then(
+        CallAPI(`api/cart/count/${userPhone}`).then(
             res => {
                 this.props.dispatch({ type: "UPDATE_TOTAL_ITEM_CART", data: res.data.count });
                 localStorage.setItem("TOTAL_ITEM_CART",res.data.count);
                 localStorage.setItem("SUM_CART",res.data.sum);
             }).catch(() => {
-                alert("Lỗi lấy tổng sản phẩm giỏ hàng");
+                alert("Tổng sản phẩm giỏ hàng không đúng");
             });
-
             window.location.reload();
     }
 
@@ -66,13 +68,13 @@ class CartItem extends Component {
         return (
             <tr>
                 <td className="row">
-                    <img src={this.props.thumbnail} width={100} height={100} alt="fdf" />
+                    <img src={this.props.thumbnail} width={60} height={60} alt="image" />
                     <strong className="ml-5 fw-bold">{this.props.name}</strong>
                 </td>
                 <td>
-                    <span className="ml-5">Đơn giá: 
+                    <span className="ml-5">Đơn giá: <br/>
                         <strong className=" text-danger">{numeral(this.props.price).format('0,0')}đ</strong>
-                    </span> X 
+                    </span>
                 </td>
                 <td>
                     <div className="row">
@@ -86,7 +88,7 @@ class CartItem extends Component {
                     </div>
                 </td>
                 <td className=" text-danger">
-                    =  {numeral(this.props.price * this.state.quantity).format('0,0')} đ
+                    Thành tiền: {numeral(this.props.price * this.state.quantity).format('0,0')} đ
                 </td>
                 <td>
                     <button onClick={() => this.deleteItem(this.props.productID)} type="button" className=" ml-5 btn btn-danger"><i className="fas fa-trash-alt"/> Xóa</button>

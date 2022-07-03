@@ -17,7 +17,7 @@ class SuggestSearch extends Component {
 
     onChange = e => {
         let list = [];
-        CallAPI('products/search', null, { keyword: e.currentTarget.value }).then(res => {
+        CallAPI(`api/product/search`, null, {}, { name: e.currentTarget.value }).then(res => {
             list = res.data.list;
             this.setState({
                 filteredSuggestions: list
@@ -32,7 +32,7 @@ class SuggestSearch extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        CallAPI('products/search', null, { keyword: this.state.userInput }).then(res => {
+        CallAPI(`api/product/search`, null, {}, { name: this.state.userInput }).then(res => {
             this.props.dispatch({ type: "HIDDEN_VIDEO_INTRO" });
             this.props.dispatch({ type: "FETCH_CUSTOMER_LIST_PRODUCT", data: res.data.list });
             this.props.dispatch({ type: "UPDATE_ITEMS_COUNT_PER_PAGE", data: res.data.pageSize });

@@ -36,7 +36,7 @@ class Cart extends Component {
       .catch(() => {
         alert("Lỗi thanh toán!");
       })
-    window.location.replace(process.env.REACT_APP_DOMAIN + "purchase");
+    window.location.replace("/purchase");
   }
 
   render() {
@@ -47,8 +47,8 @@ class Cart extends Component {
       showItems = this.state.listItem.map(product => {
         return (
           <CartItem
-            key={product.productID}
-            productID={product.productID}
+            key={product.productId}
+            productID={product.productId}
             thumbnail={product.thumbnail}
             name={product.name}
             price={product.price}
@@ -87,7 +87,7 @@ class Cart extends Component {
                           </tr>
                           <tr>
                             <th scope="row">Tổng tiền:</th>
-                            <td ><h5 className="font-weight-bold text-danger">{numeral(this.props.totalItemCart.sum).format('0,0')} đ</h5></td>
+                            <td><h5 className="font-weight-bold text-danger">{numeral(this.props.totalItemCart.sum).format('0,0')} đ</h5></td>
                           </tr>
                         </tbody>
                       </table>

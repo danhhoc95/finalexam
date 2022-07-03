@@ -49,10 +49,12 @@ public class ProductController {
     }
 
     @GetMapping(value = { "/product/search"})
-    public List<Product> GetProductsByName(@RequestBody SearchProduct searchProduct) {
+    public Payload<Product> GetProductsByName(@RequestBody SearchProduct searchProduct) {
         String productName = searchProduct.getName();
         List<Product> products = productService.GetProductsByName(productName);
-        return products;
+        Payload<Product> response = new Payload<>();
+        response.setList(products);
+        return response;
     }
 
     @GetMapping(value = { "/product/filter"})

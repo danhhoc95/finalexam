@@ -96,6 +96,13 @@ class NavigationBar extends Component {
                             {showLoginBtn}
                             {showRegister}
                             <li className="nav-item">
+                                <NavLink onClick={() => this.disableRedirectToHome()} 
+                                activeClassName="NavItemActive" 
+                                className="nav-link NavItem" 
+                                to="/cart">
+                                    <i className="fas fa-shopping-cart"/> Giỏ hàng <span className="badge badge-danger">{(this.props.totalItemCart != null ? this.props.totalItemCart.count : "")}</span></NavLink>
+                            </li>
+                            <li className="nav-item">
                                 <NavLink onClick={() => this.disableRedirectToHome()}
                                          activeClassName="NavItemActive" 
                                          className="nav-link NavItem" 
