@@ -11,6 +11,6 @@ import java.util.List;
 @Repository
 public interface IOrderRepository extends JpaRepository<ProductOrder, Integer>{
 
-    @Query(value = "SELECT * FROM Order WHERE phone = :phone", nativeQuery = true)
+    @Query(value = "SELECT * FROM Product_Order WHERE phone_number = :phone", nativeQuery = true)
     List<ProductOrder> findByPhone(@Param("phone") String phone);
 }

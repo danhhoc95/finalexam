@@ -24,9 +24,9 @@ class Profile extends Component {
 
     componentDidMount() {
         let userPhone = localStorage.getItem("PHONEUSERLOGINED");
-        CallAPI(`Orders/${userPhone}`).then(res => {
+        CallAPI(`api/orders/${userPhone}`).then(res => {
             this.setState({
-                istOrder: res.data.list,
+                listOrder: res.data.list,
                 pageSize: res.data.pageSize,
                 totalItem: res.data.totalItem
                 })
@@ -39,7 +39,7 @@ class Profile extends Component {
     handlePageChange(pageNumber) {
         this.setState({ activePage: pageNumber });
         let userPhone = localStorage.getItem("PHONEUSERLOGINED");
-        CallAPI(`Orders/${userPhone}`, null, { page: pageNumber })
+        CallAPI(`api/orders/${userPhone}`, null, { page: pageNumber })
             .then(res => {
                 console.log(res.data)
                 this.setState({
@@ -68,7 +68,7 @@ class Profile extends Component {
                             date={unixTimeToDate(order.timestamp)}
                             orderID={order.orderId}
                             status={order.status}
-                            paymentMethod={order.paymentMethod === "COD" ? "COD" : "Chuyển khoản"}
+                            paymentMethod={order.paymentMethod}
                             Address={order.address}
                             totalMoney={order.totalMoney}
                             ViewDetail={order.orderId}/>

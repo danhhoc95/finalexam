@@ -42,4 +42,6 @@ VALUES (1, 'CB1000R 2021',510000000,10,'https://cdn.honda.com.vn/motorbikes/Dece
 
 INSERT INTO product_order (order_Id, phone_number, address, create_date, total_Money,order_status, payment_Method)
 VALUES (1,'0375242475','102 dang van bi', '2022-07-02', 10000000, 'hoanthanh', ''),
-       (2,'0375242475','102 dang van bi', '2022-07-02', 10000000, 'hoanthanh', '');
+       (2,'0375242475','102 dang van bi', '2022-07-02', 10000000, 'hoanthanh', ''),
+       (3,'0909090999','102 dang van bi', '2022-07-02', 10000000, 'hoanthanh', ''),
+       (4,'0909090999','102 dang van bi', '2022-07-02', 10000000, 'hoanthanh', '');
