@@ -13,4 +13,5 @@ public interface IProductService {
     List<Product> getDetailsProductCustomer(int id);
     List<Product> GetDetailsProductAdmin( int id);
     List<Product> GetProductsByName(String name);
+    List<Product> filterData(int minPrice, int maxPrice, int minHeight, int maxHeight, String origin);
 }
