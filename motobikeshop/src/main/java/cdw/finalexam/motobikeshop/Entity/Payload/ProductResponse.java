@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 public class ProductResponse {
-    List<Product> list;
-    int totalItem;
-    int pageSize;
+    private List<Product> list;
+    private int totalItem;
+    private int pageSize;
 }

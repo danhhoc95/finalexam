@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 public class OrderResponse {
-    List<ProductOrder> list;
-    int totalItem;
-    int pageSize;
+    private List<ProductOrder> list;
+    private int totalItem;
+    private int pageSize;
 }
