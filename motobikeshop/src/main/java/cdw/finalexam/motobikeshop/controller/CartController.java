@@ -29,4 +29,9 @@ public class CartController {
         return iCartService.findByPhone(phone);
     }
 
+    @PostMapping("cart/add")
+    public CartItem createCart(@RequestBody CartItem cartItem){
+        return iCartService.save(cartItem);
+    }
+
 }
