@@ -4,12 +4,12 @@
 }
 
 .input-range__track--active{
-    background-color: #0dfd8d  !important;
+    background-color: #8DE0C6  !important;
 }
 
 .input-range__slider{
-    background: #0dfd8d ;
-    border-color: #0dfd8d ;
+    background: #8DE0C6 ;
+    border-color: #8DE0C6 ;
 }
 
 .input-range__label-container{

@@ -66,34 +66,48 @@ class CartItem extends Component {
     render() {
         var numeral = require('numeral');
         return (
-            <tr>
-                <td className="row">
-                    <img src={this.props.thumbnail} width={60} height={60} alt="image" />
-                    <strong className="ml-5 fw-bold">{this.props.name}</strong>
-                </td>
-                <td>
-                    <span className="ml-5">Đơn giá: <br/>
-                        <strong className=" text-danger">{numeral(this.props.price).format('0,0')}đ</strong>
-                    </span>
-                </td>
-                <td>
-                    <div className="row">
-                        <button onClick={() => this.handleClick(this.props.productID, true)} name="minus" id="MinusItemCart" type="button" className="btn btn-light"><i className="fas fa-minus"/></button>
-                        <input size={1}
-                            min={1}
-                            max={9999}
-                            value={this.state.quantity} disabled
-                            className="quantity fw-bold" />
-                        <button onClick={() => this.handleClick(this.props.productID, false)} name="plus" id="PlusItemCart" type="button" className="btn btn-light"><i className="fas fa-plus"/></button>
+            <div>
+            <div class="Cart-Container">
+                <div class="Cart-Items">
+                    <div class="image-box">
+                        <img src={this.props.thumbnail} className="imgProduct" alt="imageProduct" />
                     </div>
-                </td>
-                <td className=" text-danger">
-                    Thành tiền: {numeral(this.props.price * this.state.quantity).format('0,0')} đ
-                </td>
-                <td>
-                    <button onClick={() => this.deleteItem(this.props.productID)} type="button" className=" ml-5 btn btn-danger"><i className="fas fa-trash-alt"/> Xóa</button>
-                </td>
-            </tr>
+                    <div class="about">
+                        <h2 class="title">{this.props.name}</h2>
+                        <br/>
+                        <h4 class="subtitle">{numeral(this.props.price).format('0,0')}đ</h4>
+                    </div>
+                    <div class="counter">
+                        <button onClick={() => this.handleClick(this.props.productID, true)} 
+                                name="minus" 
+                                id="MinusItemCart" 
+                                type="button" 
+                                className="btnCart">-</button>
+                            <input 
+                                size={1}
+                                min={1}
+                                max={9999}
+                                value={this.state.quantity} disabled
+                                className="count text-center" />
+                            <button onClick={() => this.handleClick(this.props.productID, false)} 
+                                name="plus" 
+                                id="PlusItemCart" 
+                                type="button" 
+                                className="btnCart">+</button>
+                    </div>
+                    <div class="prices"> 
+                        <div class="product-line-price">
+                            {numeral(this.props.price * this.state.quantity).format('0,0')} đ
+                        </div>
+
+                        <div class="remove">
+                            <button onClick={() => this.deleteItem(this.props.productID)} type="button" className="btnRemove"><i className="fas fa-trash-alt"/> Xóa</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+            </div>
         );
     }
 }

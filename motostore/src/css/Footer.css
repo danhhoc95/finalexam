@@ -53,58 +53,22 @@ h5{
     margin-top: 3rem;
     font-size: 1.25rem;
   }
-  /* RESIZESCREEN ANIMATION
-  .fa-angle-double-right {
-    animation: rightanime 1s linear infinite;
-  }
-  
-  .fa-angle-double-left {
-    animation: leftanime 1s linear infinite;
-  }
-  @keyframes rightanime {
-    50% {
-      transform: translateX(10px);
-      opacity: 0.5;
-    }
-    100% {
-      transform: translateX(10px);
-      opacity: 0;
-    }
-  }
-  @keyframes leftanime {
-    50% {
-      transform: translateX(-10px);
-      opacity: 0.5;
-    }
-    100% {
-      transform: translateX(-10px);
-      opacity: 0;
-    }
-  } */
 
-
-
-  /* #################################### */
-  /* Social icon */
-
-   .headline {
+.headline {
 	 text-align: center;
 }
- .headline h1 {
+
+.headline h1 {
 	 font-size: 35px;
 	 font-family: Arial, Helvetica, sans-serif;
 }
- .social-buttons {
+
+.social-buttons {
 	 display: inline-block;
-	 /* background: rgba(256, 256, 256, 0.5);
-	 padding: 20px;
-	 padding-bottom: 5px; */
 	 border-radius: 10px;
 	 text-align: center;
-	 /* margin: 20px 10px; */
 }
  .social-buttons .social-margin {
-	/* Helper class to divide the icons */
 	 margin-right: 15px;
 }
  .social-buttons a, .social-buttons a:hover, .social-buttons a:focus, .social-buttons a:active {
@@ -124,15 +88,6 @@ h5{
 	 line-height: 1px;
 	 padding-top: 11px;
 	 transition: all 0.5s;
-	/* Facebook Button Styling */
-	/* Twitter Button Styling */
-	/* Google+ Button Styling */
-	/* Linkedin Button Styling */
-	/* Pinterest Button Styling */
-	/* Behance Button Styling */
-	/* Github Button Styling */
-	/* Youtube Button Styling */
-	/* Soundcloud Button Styling */
 }
  .social-buttons .social-icon:hover {
 	 transform: rotate(360deg) scale(1.3);

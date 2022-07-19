@@ -85,15 +85,17 @@ class Register extends Component {
                 </div>);
         }
         return (
-            <div>
+            <div className='loginBody'>
                 <div className="container-fluid ">
                     <div className="row no-gutter d-flex justify-content-center my-5 pb-5">
+                        <div>
+                            <div className="text-center">
+                                <img className="img-fluid" alt="error" src="/addNewUser.gif"/>
+                            </div>
+                        </div>
                         <div className="col-lg-4 col-sm-12">
+                            <h2>Đăng ký</h2>
                             <form onSubmit={this.handleSubmit}>
-                                <div className="text-center mb-5">
-                                    <img className="img-fluid" alt="error" src="/addNewUser.gif"></img>
-                                </div>
-
                                 {loginFailedMessage}
 
                                 <div className="form-label-group">
@@ -103,27 +105,40 @@ class Register extends Component {
                                         max={9999999999}
                                         name="phone"
                                         onChange={this.handleInputChange}
-                                        type="number" className="form-control  boder-style" placeholder="09xxxxxxxx" autoFocus required />
+                                        type="number" 
+                                        className="form-control  boder-style" 
+                                        placeholder="Số điện thoại" 
+                                        autoFocus
+                                        required />
                                 </div>
                                 <div className="mt-2 form-label-group">
                                     <label htmlFor="inputPassword">Mật khẩu</label>
                                     <input
                                         name="password"
                                         onChange={this.handleInputChange}
-                                        type="password" className="form-control boder-style" placeholder="*********" required />
+                                        type="password" 
+                                        className="form-control boder-style" 
+                                        placeholder="*********" 
+                                        required />
                                 </div>
                                 <div className="mt-2 form-label-group">
                                     <label htmlFor="inputPassword">Nhập lại mật khẩu</label>
                                     <input
                                         name="retypePassword"
                                         onChange={this.handleInputChange}
-                                        type="password" className="form-control boder-style" placeholder="*********" required />
+                                        type="password" 
+                                        className="form-control boder-style" 
+                                        placeholder="*********" 
+                                        required />
                                 </div>
 
-                                <button className="mt-4 boder-style btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">Đăng kí</button>
+                                <button className="mt-4 boder-style btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" 
+                                        type="submit">Đăng ký</button>
 
                                 <div className="text-center my-3">
-                                    <span>Đã có tài khoản? </span><Link to="/login" className="badge badge-success"> Đăng nhập ngay</Link>
+                                    <span>Đã có tài khoản? </span>
+                                    <Link to="/login" 
+                                          className="badge badge-success"> Đăng nhập ngay</Link>
                                 </div>
                             </form>
                         </div>

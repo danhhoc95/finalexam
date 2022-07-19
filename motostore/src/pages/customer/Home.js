@@ -5,7 +5,7 @@ import CallAPI from '../../RESTFull/BaseApi';
 import '../../css/CustomerHome.css';
 import ImageHolder from '../../components/Customer/Loading';
 import CardProduct from '../../components/Customer/CardProduct';
-
+import FilterBar from '../../components/Customer/FilterBar';
 
 class Home extends Component {
 
@@ -84,10 +84,8 @@ class Home extends Component {
         if (this.props.listProductCustomer != null && this.props.listProductCustomer.length > 0) {
             showPagination = (<div className="container mt-4">
                                 <div className="row justify-content-center mb-4">
-                                    <Pagination
+                                    <Pagination className="paginations"
                                         activePage={this.props.activePage}
-                                        firstPageText="Trang đầu"
-                                        lastPageText="Trang cuối"
                                         itemClass="page-item"
                                         linkClass="page-link"
                                         itemsCountPerPage={this.props.itemsCountPerPage}
@@ -99,17 +97,17 @@ class Home extends Component {
         }
 
         return (<div>
-                {videoIntro}
-                {/*  LIST */}
+                    <FilterBar/>
+                    {videoIntro}
+                    {/*  LIST */}
                     <div className="container mt-4">
                         <div className="row">
                             {listCardProducts}
                         </div>
                     </div>
-                {/* / LIST */}
-                {showPagination}
-                </div>
-            );
+                    {/* / LIST */}
+                    {showPagination}
+                </div>);
     }
 }
 
@@ -123,6 +121,6 @@ const mapStateToProps = state => ({
     itemsCountPerPage: state.itemsCountPerPage,
     totalItemsCount: state.totalItemsCount,
     activePage: state.activePage,
-
 })
+
 export default connect(mapStateToProps)(Home);

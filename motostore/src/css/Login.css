@@ -1,7 +1,19 @@
+.loginBody{
+    padding-top: 1em;
+}
+
 .boder-style{
     border-radius: 0.5em;
 }
 
 .badge{
     padding: 0.7em;
+}
+
+.img-fluid{
+    max-width: 60%;
+}
+
+.btn-login{
+    background-color: #8DE0C6;
 }

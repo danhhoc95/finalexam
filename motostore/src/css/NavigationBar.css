@@ -13,7 +13,7 @@
 
 .nav-link:hover,
 .active:hover {
-  color: #0dfd8d;
+  color: #8DE0C6;
 }
 
 #nav-btn-search{
@@ -36,4 +36,4 @@
   
 a{
     color: black;
-  }
+}

@@ -56,7 +56,7 @@ class CardProduct extends Component {
                         <h3 className="card-title font-weight-bold text-truncate">
                             <a className="text-decoration-none" href={'/product-detail/' + this.props.productId}>{this.props.name}</a>
                         </h3>
-                        <h3 className=" font-weight-bold text-danger" >{numeral(this.props.price).format('0,0')} đ</h3>
+                        <h3 className="font-weight-bold text-danger">Giá: {numeral(this.props.price).format('0,0')} đ</h3>
                     </div>
                     <hr/>
                     <TextTruncate

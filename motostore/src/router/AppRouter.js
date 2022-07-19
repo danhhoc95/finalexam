@@ -61,6 +61,7 @@ class AppRouter extends Component {
                                 <Route exact path="/cart" component={Cart} />
                                 <Route exact path="/contact" component={Contact} />
                                 <Route exact path="/product-detail/:path?" component={ProductDetail} />
+                                <Route exact path="/product-detail/undefinedlogin" component={Unauthorized} />
                                 <Route path="*" component={PageNotFound} />
                             </Switch>
                         </CustomerLayout>

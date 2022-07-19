@@ -57,48 +57,47 @@ class Cart extends Component {
       })
     }
     return (
-      <div>
+      <div className='body'>
         {(this.state.listItem.length > 0) 
         ?(<div>
             <div className="container-fluid my-5 mx-3">
               <div className="row">
-                <div className=" col-lg-8 col-sm-12 col-md-12" >
-                  <table className="table">
-                    <tbody>
-                      {showItems}
-                    </tbody>
-                  </table>
+                <div className=" col-lg-8" >
+                  {showItems}
                 </div>
-                <div className="col-lg-4 col-sm-12 col-md-12 text-center">
-                  <div className="mx-5 card sticky-top" >
+                <div className="col-lg-4">
+                  <div className="sticky-top" >
                     <div className="card-body">
-                      <h5 className="card-title">Thành tiền</h5>
-                      <table className="table ">
-                        <thead>
-                          <tr>
-                            <th scope="col">Tạm tính:</th>
-                            <td ><h5 className="font-weight-bold text-danger">{numeral(this.props.totalItemCart.sum).format('0,0')} đ</h5></td>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">Phí vận chuyển:</th>
-                            <td ><h5 className="font-weight-bold text-danger">miễn phí</h5></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">Tổng tiền:</th>
-                            <td><h5 className="font-weight-bold text-danger">{numeral(this.props.totalItemCart.sum).format('0,0')} đ</h5></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <button onClick={() => { this.purchase() }} type="button" className="btn btn-primary"><i className="fas fa-money-check-alt"/> Thanh toán</button>
+                      <h2 className="card-title">Thành tiền</h2>
+                      <div class="col-lg-12 mt-2">
+                        <div class="row d-flex justify-content-between px-12">
+                            <h4 class="mb-4 text-left">Tạm tính:</h4>
+                            <h4 class="mb-4 text-right">{numeral(this.props.totalItemCart.sum).format('0,0')} đ</h4>
+                        </div>
+                        <div class="row d-flex justify-content-between px-12">
+                            <h4 class="mb-4 text-left">Phí vận chuyển:</h4>
+                            <h4 class="mb-4 text-right">Miễn phí</h4>
+                        </div>
+                        <div class="row d-flex justify-content-between px-12" id="tax">
+                            <h4 class="mb-4 text-left">Tổng (VAT):</h4>
+                            <h4 class="mb-4 text-right text-danger">{numeral(this.props.totalItemCart.sum).format('0,0')} đ</h4>
+                        </div>
+                      </div>
+                      
+                      <div className="text-center">
+                      <button onClick={() => { this.purchase() }} 
+                              type="button"
+                              className="btn btnCheckout">
+                        <i className="fas fa-money-check-alt"/> <strong>Thanh toán</strong>
+                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>)
-          : (<div className="text-center my-5 py-5">
+          : (<div className="text-center">
               <ImageHolder url="/emptycart.gif" />
               <h1 className="mb-5 pb-5">Giỏ hàng trống</h1>
             </div>)}

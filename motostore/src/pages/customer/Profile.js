@@ -4,7 +4,8 @@ import { Redirect } from 'react-router-dom';
 import CallAPI from '../../RESTFull/BaseApi';
 import OrderRecord from '../../components/Customer/CustomerOrderRecord';
 import Pagination from "react-js-pagination";
-import unixTimeToDate from '../utility/UnixTimeToDate'
+import unixTimeToDate from '../utility/UnixTimeToDate';
+import '../../css/Profile.css';
 
 class Profile extends Component {
     constructor(props) {
@@ -77,7 +78,7 @@ class Profile extends Component {
         }
 
         return (
-            <div>
+            <div className='body'>
                 {redirectHome}
                 <div className="container">
                     <div className="row my-4">

@@ -71,18 +71,18 @@ class CustomerOrderRecord extends Component {
                 )
             });
             showOrderDetail = (<table className="table">
-                <thead>
-                    <tr>
-                        <th colSpan="2" scope="col">Tên</th>
-                        <th scope="col">Đơn giá</th>
-                        <th scope="col">Số lượng</th>
-                        <th scope="col">Tổng tiền</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {productRecord}
-                </tbody>
-            </table>);
+                                    <thead>
+                                        <tr>
+                                            <th colSpan="2" scope="col">Tên</th>
+                                            <th scope="col">Đơn giá</th>
+                                            <th scope="col">Số lượng</th>
+                                            <th scope="col">Tổng tiền</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {productRecord}
+                                    </tbody>
+                               </table>);
         }
 
         return (
@@ -92,23 +92,38 @@ class CustomerOrderRecord extends Component {
                 <td>{orderStatusLbl}</td>
                 <td>{this.props.paymentMethod}</td>
                 <td>
-                    <span className="d-inline-block text-truncate" style={{ width: 100 }} data-toggle="tooltip" data-placement="top" title={this.props.Address}>
-                        {this.props.Address}
-                    </span>
+                    <span className="d-inline-block text-truncate" 
+                          style={{ width: 100 }} 
+                          data-toggle="tooltip" 
+                          data-placement="top" 
+                          title={this.props.Address}>{this.props.Address}</span>
                 </td>
                 <td >{numeral(this.props.totalMoney).format('0,0')} đ</td>
                 <td>
                     <div>
-                        <button onClick={() => this.getOrderDetail()} type="button" className="btn btn-info" data-toggle="modal" data-target={`#viewDetailList${this.props.orderID}`}>
-                            <i className="fas fa-info-circle"></i> DS sản phẩm
+                        <button onClick={() => this.getOrderDetail()} 
+                                type="button" 
+                                className="btn btn-info" 
+                                data-toggle="modal" 
+                                data-target={`#viewDetailList${this.props.orderID}`}>
+                            <i className="fas fa-info-circle"/> DS sản phẩm
                         </button>
-                        <div className="modal fade" id={`viewDetailList${this.props.orderID}`} tabIndex={-1} aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div className="modal fade" 
+                             id={`viewDetailList${this.props.orderID}`} 
+                             tabIndex={-1} 
+                             aria-labelledby="exampleModalLabel" 
+                             aria-hidden="true">
                             <div className="modal-dialog">
                                 <div className="modal-content">
                                     <div className="modal-header">
-                                        <h5 className="modal-title" id="exampleModalLabel">Chi tiết đơn hàng #{this.props.orderID}</h5>
-                                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                            <span className="text-danger" aria-hidden="true"><i className=" fas fa-times-circle"></i></span>
+                                        <h5 className="modal-title" 
+                                            id="exampleModalLabel">Chi tiết đơn hàng #{this.props.orderID}</h5>
+                                        <button type="button" 
+                                                className="close"
+                                                data-dismiss="modal" 
+                                                aria-label="Close">
+                                            <span className="text-danger" 
+                                                  aria-hidden="true"><i className=" fas fa-times-circle"/></span>
                                         </button>
                                     </div>
                                     <div className="modal-body">
@@ -122,8 +137,12 @@ class CustomerOrderRecord extends Component {
                 <td>
                     {
                         (this.props.status === 'Cancel') 
-                        ? <button disabled type="button" className="btn btn-danger"><i className="fa fa-trash-alt"/>Hủy</button> 
-                        : <button onClick={() => this.cancelOrder()} type="button" className="btn btn-danger"><i className="fa fa-trash-alt"/>Hủy</button>
+                        ? <button disabled 
+                                  type="button" 
+                                  className="btn btn-danger"><i className="fa fa-trash-alt"/> Hủy</button> 
+                        : <button onClick={() => this.cancelOrder()} 
+                                  type="button" 
+                                  className="btn btn-danger"><i className="fa fa-trash-alt"/> Hủy</button>
                     }
                 </td>
             </tr>

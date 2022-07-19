@@ -69,13 +69,21 @@ class AdminLogin extends Component {
         return (
             <div>
                 <div className="container-fluid mt-5 mt-5">
+                    <div className="row text-center justify-content-center">
+                        <div className="col-12">
+                            <Link to="/home" className="btn btn-success btn-lg active" role="button" aria-pressed="true"> <i className="fas fa-home"/> Trang chủ</Link>
+                            <br />
+                            <p className="mt-3 text-danger font-weight-bold">Nếu bạn không phải Admin hãy trở về trang chủ</p>
+                        </div>
+                    </div>
                     <div className="row no-gutter d-flex justify-content-center my-5 pb-5">
-                        <div className="col-lg-4 col-sm-12">
-                            <form onSubmit={this.handleSubmit}>
-                                <div className="text-center mb-5">
-                                    <i style={{ fontSize: 80 }} className="fas fa-user-shield"></i>
-                                </div>
+                        <div className="text-center mb-5">
+                            <img className="img-fluid" alt="imagelogin" src="/login.gif"/>
+                        </div>
 
+                        <div className="col-lg-4 col-sm-12">
+                            <h2>Đăng nhập</h2>
+                            <form onSubmit={this.handleSubmit}>
                                 {loginFailedMessage}
 
                                 <div className="form-label-group">
@@ -92,16 +100,8 @@ class AdminLogin extends Component {
                                         onChange={this.handleInputChange}
                                         type="password" className="form-control boder-style" placeholder="*********" required />
                                 </div>
-                                <button className=" boder-style btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mt-5" type="submit"><i className="fas fa-unlock"></i> Admin đăng nhập</button>
+                                <button className=" boder-style btn btn-lg btn-block btn-login text-uppercase font-weight-bold mt-5" type="submit"><i className="fas fa-unlock"/> Đăng nhập</button>
                             </form>
-                        </div>
-                    </div>
-
-                    <div className="row text-center justify-content-center">
-                        <div className="col-12">
-                            <Link to="/home" className="btn btn-success btn-lg active" role="button" aria-pressed="true"> <i className="fas fa-home"></i> Trang chủ</Link>
-                            <br />
-                            <p className="mt-3 text-danger font-weight-bold">Nếu bạn không phải Admin hãy trở về trang chủ</p>
                         </div>
                     </div>
                 </div>

@@ -3,3 +3,10 @@
     height: auto;
 }
 
+.body{
+    padding-top: 1em;
+}
+
+.btnAdd{
+    background-color: #8DE0C6;
+}
