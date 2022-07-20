@@ -27,95 +27,88 @@ class NavigationBar extends Component {
         let showRegister;
 
         if (this.props.customerNameWellcome != null) {
-            showProfileButton = (
-                <li className="nav-item">
-                    <NavLink onClick={() => this.disableRedirectToHome()}
-                             activeClassName="NavItemActive" 
-                             className="nav-link NavItem" 
-                             to="/profile">
-                        <i className="fas fa-user-alt"/> <span>Tài khoản - <span style={{ fontWeight: 900 }}> {this.props.customerNameWellcome} </span></span>
-                    </NavLink>
-                </li>);
+            showProfileButton = (<li className="nav-item">
+                                    <NavLink onClick={() => this.disableRedirectToHome()}
+                                            activeClassName="NavItemActive" 
+                                            className="nav-link NavItem" 
+                                            to="/profile">
+                                                <i className="fas fa-user-alt"/> <span>Tài khoản - <span style={{ fontWeight: 900 }}> {this.props.customerNameWellcome} </span></span>
+                                    </NavLink>
+                                </li>);
         }
 
         if (this.props.customerNameWellcome == null) {
-            showLoginBtn = (
-                <li className="nav-item">
-                    <NavLink onClick={() => this.disableRedirectToHome()} 
-                             activeClassName="NavItemActive" 
-                             className="nav-link NavItem" 
-                             to="/login">
-                        <i className="fas fa-key"/> Đăng nhập
-                    </NavLink>
-                </li>
-            );
-        }
-        if (this.props.customerNameWellcome == null) {
-            showRegister = (
-                <li className="nav-item">
-                    <NavLink onClick={() => this.disableRedirectToHome()}
-                             activeClassName="NavItemActive" 
-                             className="nav-link NavItem" 
-                             to="/register">
-                        <i className="fas fa-user-plus"/> Đăng ký
-                    </NavLink>
-                </li>
-            );
-        }
-
-        return (
-            <div>
-                <nav id="CustomerNavigationBar" className="navbar fixed-top navbar-expand-lg navbar-light">
-                    <NavLink onClick={() => this.redirectToHome()} 
-                             className="navbar-brand" 
-                             to="/">
-                        <img src="../ic_motor.gif" alt="cdw" width={50} height={50} /> Moto Store
-                    </NavLink>
-                    <button className="navbar-toggler" 
-                            type="button"
-                            data-toggle="collapse"
-                            data-target="#navbarSupportedContentTopMenu"
-                            aria-controls="navbarSupportedContent" 
-                            aria-expanded="false" 
-                            aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon" />
-                    </button>
-
-                    <div className="collapse navbar-collapse" id="navbarSupportedContentTopMenu">
-                        <SuggestSearch />
-                        <ul className="nav nav-pills ml-auto">
-                            <li className="nav-item">
-                                <NavLink onClick={() => this.redirectToHome()} 
+            showLoginBtn = (<li className="nav-item">
+                                <NavLink onClick={() => this.disableRedirectToHome()} 
                                          activeClassName="NavItemActive" 
                                          className="nav-link NavItem" 
-                                         to="/home">
-                                    <i className="fas fa-home"/> Trang chủ
+                                         to="/login">
+                                            <i className="fas fa-key"/> Đăng nhập
                                 </NavLink>
-                            </li>
-                            {showProfileButton}
-                            {showLoginBtn}
-                            {showRegister}
-                            <li className="nav-item">
-                                <NavLink onClick={() => this.disableRedirectToHome()} 
-                                activeClassName="NavItemActive" 
-                                className="nav-link NavItem" 
-                                to="/cart">
-                                    <i className="fas fa-shopping-cart"/> Giỏ hàng <span className="badge badge-danger">{(this.props.totalItemCart != null ? this.props.totalItemCart.count : "")}</span></NavLink>
-                            </li>
-                            <li className="nav-item">
+                            </li>);
+        }
+        if (this.props.customerNameWellcome == null) {
+            showRegister = (<li className="nav-item">
                                 <NavLink onClick={() => this.disableRedirectToHome()}
                                          activeClassName="NavItemActive" 
                                          className="nav-link NavItem" 
-                                         to="/contact">
-                                    <i class="fas fa-square-phone"></i> Liên hệ
+                                         to="/register">
+                                            <i className="fas fa-user-plus"/> Đăng ký
                                 </NavLink>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-                <div id="navigationBarSpacingBottom"></div>
-            </div>
-        );
+                            </li>);
+        }
+
+        return (<div>
+                    <nav id="CustomerNavigationBar" className="navbar fixed-top navbar-expand-lg navbar-light">
+                        <NavLink onClick={() => this.redirectToHome()} 
+                                className="navbar-brand" 
+                                to="/">
+                            <img src="../ic_motor.gif" alt="iconLogo" width={50} height={50} /> Moto Store
+                        </NavLink>
+                        <button className="navbar-toggler" 
+                                type="button"
+                                data-toggle="collapse"
+                                data-target="#navbarSupportedContentTopMenu"
+                                aria-controls="navbarSupportedContent" 
+                                aria-expanded="false" 
+                                aria-label="Toggle navigation">
+                            <span className="navbar-toggler-icon" />
+                        </button>
+
+                        <div className="collapse navbar-collapse" id="navbarSupportedContentTopMenu">
+                            <SuggestSearch />
+                            <ul className="nav nav-pills ml-auto">
+                                <li className="nav-item">
+                                    <NavLink onClick={() => this.redirectToHome()} 
+                                            activeClassName="NavItemActive" 
+                                            className="nav-link NavItem" 
+                                            to="/home">
+                                        <i className="fas fa-home"/> Trang chủ
+                                    </NavLink>
+                                </li>
+                                {showProfileButton}
+                                {showLoginBtn}
+                                {showRegister}
+                                <li className="nav-item">
+                                    <NavLink onClick={() => this.disableRedirectToHome()} 
+                                    activeClassName="NavItemActive" 
+                                    className="nav-link NavItem" 
+                                    to="/cart">
+                                        <i className="fas fa-shopping-cart"/> Giỏ hàng <span className="badge badge-danger">{(this.props.totalItemCart != null ? this.props.totalItemCart.count : "")}</span></NavLink>
+                                </li>
+                                <li className="nav-item">
+                                    <NavLink onClick={() => this.disableRedirectToHome()}
+                                            activeClassName="NavItemActive" 
+                                            className="nav-link NavItem" 
+                                            to="/contact">
+                                        <i class="fas fa-square-phone"></i> Liên hệ
+                                    </NavLink>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div id="navigationBarSpacingBottom"></div>
+                </div>);
     }
 }
 

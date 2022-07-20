@@ -65,18 +65,10 @@ class CardProduct extends Component {
                         truncateText=" …"
                         containerClassName=" d-inline card-text text-card-description"
                         text={decode(striptags(this.props.description))}/>
-
-                    <div className="d-flex mt-2 justify-content-between">
-                        <a href={`/product-detail/` + this.props.productId}>
-                            <button type="button" className="btn btn-cart-detail">
-                                <i className="fas fa-eye"/> Xem chi tiết
-                            </button>
-                        </a>
-                        <button onClick={() => { addCart(this.props.productId) }} type="button" className="btn btn-cart-product">
-                            <i className="fas fa-cart-plus"/> Thêm vào giỏ hàng
-                        </button>
-                    </div>
                 </div>
+                <button onClick={() => { addCart(this.props.productId) }} type="button" className="btn btn-cart-product">
+                    <i className="fas fa-cart-plus"/> Thêm vào giỏ hàng
+                </button>
             </div>
         );
     }

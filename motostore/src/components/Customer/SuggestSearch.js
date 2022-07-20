@@ -115,7 +115,7 @@ class SuggestSearch extends Component {
                             className="form-control" placeholder="Bạn cần tìm gì?"
                             aria-label="Username" aria-describedby="basic-addonNavCustomer" />
                     </div>
-                    <button id="nav-btn-search" className="btn btn-outline-success my-2 my-sm-0 " type="submit">Tìm sản phẩm</button>
+                    <button id="nav-btn-search" className="btn btnSearch" type="submit">Tìm sản phẩm</button>
                 {suggestionsListComponent}
                 </form>
             </Fragment>

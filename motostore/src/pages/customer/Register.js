@@ -76,13 +76,12 @@ class Register extends Component {
     render() {
         let loginFailedMessage;
         if (this.state.showMessage) {
-            loginFailedMessage = (
-                <div className="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong><i className="fas fa-exclamation-triangle"></i></strong> {this.state.messageFailed}
-                    <button type="button" className="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>);
+            loginFailedMessage = (<div className="alert alert-danger alert-dismissible fade show" role="alert">
+                                        <strong><i className="fas fa-exclamation-triangle"></i></strong> {this.state.messageFailed}
+                                        <button type="button" className="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">×</span>
+                                        </button>
+                                  </div>);
         }
         return (
             <div className='loginBody'>

@@ -19,7 +19,6 @@ class Home extends Component {
         })
     }
 
-
     componentDidMount() {
         localStorage.removeItem("userRegister");
         CallAPI('api/products').then(res => {
@@ -42,7 +41,7 @@ class Home extends Component {
                         <div className="d-flex h-100 text-center align-items-center">
                             <div className="w-100 text-white">
                                 <h1 id="brand-name-overlay" className="display-3 sloganOverlay">Moto store</h1>
-                                <p className="lead mb-0 sloganOverlay">Hệ thống chuỗi bán xe máy</p>
+                                <p className="lead mb-0 sloganOverlay">Hệ thống bán xe máy</p>
                             </div>
                         </div>
                     </div>
@@ -101,6 +100,7 @@ class Home extends Component {
                     {videoIntro}
                     {/*  LIST */}
                     <div className="container mt-4">
+                        <h2>Mẩu xe</h2>
                         <div className="row">
                             {listCardProducts}
                         </div>
