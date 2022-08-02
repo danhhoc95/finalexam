@@ -43,9 +43,9 @@ class FilterBar extends Component {
                         <div className="col-3">
                             <InputRange
                                 formatLabel={value => `${value} triệu`}
-                                step={50}
+                                step={10}
                                 maxValue={700}
-                                minValue={100}
+                                minValue={30}
                                 value={this.props.filterPrice}
                                 onChange={filterPrice => this.handleChange("UPDATE_FILTER_PRICE", filterPrice)} />
                         </div>
