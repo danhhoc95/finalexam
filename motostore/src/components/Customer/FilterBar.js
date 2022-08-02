@@ -13,7 +13,7 @@ class FilterBar extends Component {
         this.props.dispatch({ type: type, data: data });
         this.props.dispatch({ type: "REDIRECT_TO_HOME" });
         var condition = {
-            origin: this.props.filterOrigin,
+            origin: data,
             sort: this.props.SortMode,
             priceRange: this.props.filterPrice,
             heightRange: this.props.filterHeight,
@@ -68,16 +68,6 @@ class FilterBar extends Component {
                                     <option value={"Honda"}>Honda</option>
                                     <option value={"Suzuki"}>Suzuki</option>
                                     <option value={"Yamaha"}>Yamaha</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div className="col-2">
-                            <div className="form-group">
-                                <select className="form-control" onChange={event => this.handleChange("UPDATE_SORT_MODE", event.target.value)} >
-                                    <option value={0}>Sắp xếp theo</option>
-                                    <option value={1}>Giá</option>
-                                    <option value={2}>Chiều cao</option>
-                                    <option value={3}>Mới cập nhật</option>
                                 </select>
                             </div>
                         </div>

@@ -54,11 +54,7 @@ public class OrderController {
     {
         Random rnd = new Random();
         int orderIDrd = rnd.nextInt(8);
-
         var cart = iCartService.findByPhone(phone);
-
-
         return "" + orderIDrd;
     }
-
 }

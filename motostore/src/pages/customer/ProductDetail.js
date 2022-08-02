@@ -140,6 +140,76 @@ class ProductDetail extends Component {
 
                     <h3 className="my-4">Mô tả chi tiết:</h3>
                     <div id="product-content-detail">
+                        <ul class="tecical-params-ul">
+                            <li>
+                                <div class="dt">Khối lượng bản thân</div>
+                                <div class="dd">104 kg <br/> 105 kg (Thông số kỹ thuật của phiên bản vành đúc)</div>
+                            </li>
+                            <li>
+                                <div class="dt">Dài x Rộng x Cao</div>
+                                <div class="dd">1.931 mm x 711 mm x 1.083 mm</div>
+                            </li>
+                            <li>
+                                <div class="dt">Khoảng cách trục bánh xe</div>
+                                <div class="dd">1.258 mm</div>
+                            </li>
+                            <li>
+                                <div class="dt">Độ cao yên</div>
+                                <div class="dd">756 mm</div>
+                            </li>
+                            <li>
+                                <div class="dt">Khoảng sáng gầm xe</div>
+                                <div class="dd">133 mm</div>
+                            </li>
+                            <li>
+                                <div class="dt">Dung tích bình xăng</div>
+                                <div class="dd">4,6 lít</div>
+                            </li>
+                            <li>
+                                <div class="dt">Kích cỡ lớp trước/ sau</div>
+                                <div class="dd">Trước: 70/90 - 17 M/C 38P<br/> Sau: 80/90 - 17 M/C 50P</div>
+                            </li>
+                            <li>
+                                <div class="dt">Loại động cơ</div>
+                                <div class="dd">Xăng, làm mát bằng không khí, 4 kỳ, 1 xy-lanh</div>
+                            </li>
+                            <li>
+                                <div class="dt">Công suất tối đa</div>
+                                <div class="dd">6,83 kW/7.500 vòng/phút</div>
+                            </li>
+                            <li>
+                                <div class="dt">Dung tích nhớt máy</div>
+                                <div class="dd">0.9 lít khi rã máy <br/> 0,7 lít khi thay nhớt</div>
+                            </li>
+                            <li>
+                                <div class="dt">Mức tiêu thụ nhiên liệu</div>
+                                <div class="dd">1,60 lít/100km</div>
+                            </li>
+                            <li>
+                                <div class="dt">Loại truyền động</div>
+                                <div class="dd">4 số tròn</div>
+                            </li>
+                            <li>
+                                <div class="dt">Loại truyền động</div>
+                                <div class="dd"> 4 số tròn</div>
+                            </li>
+                            <li>
+                                <div class="dt">Hệ thống khởi động</div>
+                                <div class="dd">10,2 Nm/5.500 vòng/phút</div>
+                            </li>
+                            <li>
+                                <div class="dt">Dung tích xy-lanh</div>
+                                <div class="dd">124,9 cm3</div>
+                            </li>
+                            <li>
+                                <div class="dt">Đường kính x Hành trình pít tông</div>
+                                <div class="dd">52,4 x 57,9 mm</div>
+                            </li>
+                            <li>
+                                <div class="dt">Tỷ số nén</div>
+                                <div class="dd">9,3:1</div>
+                            </li>
+                        </ul>
                         {ReactHtmlParser(pro.description)}
                     </div>
 
