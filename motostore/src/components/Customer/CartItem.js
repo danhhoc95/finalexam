@@ -22,7 +22,7 @@ class CartItem extends Component {
                 CallAPI(`api/cart/sub/${userPhone}`, 'POST', { }, productID)
                 .then()
                 .catch(() => {
-                    alert("Lỗi khi thêm sản phẩm vảo giỏ hàng");
+                    alert("Lỗi khi giảm sản phẩm vảo giỏ hàng");
                 })
             }
         } else {
@@ -48,7 +48,8 @@ class CartItem extends Component {
     deleteItem(productID) {
         let userPhone = localStorage.getItem("PHONEUSERLOGINED");
 
-        CallAPI(`api/cart/remove/${userPhone}`, 'DELETE', { productID: productID }).catch(() => {
+        CallAPI(`api/cart/remove/${userPhone}`, 'POST', { }, productID )
+        .catch(() => {
             alert("Lỗi xóa sản phẩm");
         });
 

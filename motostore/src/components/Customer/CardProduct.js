@@ -59,6 +59,11 @@ class CardProduct extends Component {
                         <h3 className="font-weight-bold text-danger">Giá: {numeral(this.props.price).format('0,0')} đ</h3>
                     </div>
                     <hr/>
+                       
+                                <div class="dt">Khối lượng bản thân: 104 kg </div>
+                           
+                                <div class="dt">Khoảng cách trục bánh xe: 1.258 mm</div>
+                         
                     <TextTruncate
                         line={3}
                         element="p"

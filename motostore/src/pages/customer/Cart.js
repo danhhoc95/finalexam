@@ -16,7 +16,8 @@ class Cart extends Component {
 
   componentDidMount() {
     let userPhone = localStorage.getItem("PHONEUSERLOGINED");
-    CallAPI(`api/cart/${userPhone}`).then(res => {
+    CallAPI(`api/cart/${userPhone}`)
+    .then(res => {
       this.setState({
         listItem: res.data
       })

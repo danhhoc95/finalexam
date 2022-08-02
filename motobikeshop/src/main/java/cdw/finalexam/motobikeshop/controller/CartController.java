@@ -112,4 +112,18 @@ public class CartController {
          iCartService.remove(cartItem);
     }
 
+    @PostMapping("cart/remove/{phone}")
+    public List<CardDetailPayload> removeCartItem(@PathVariable("phone") String phone, @RequestBody String productid)
+    {
+        List<CardDetailPayload> response = new ArrayList<>();
+        var cardItems = iCartService.findByPhone(phone);
+        for (var i: cardItems) {
+            if(i.getProductId()== Integer.parseInt(productid)){
+                cardItems.remove(i);
+                iCartService.remove(i);
+            }
+        }
+        var cardItems2 = iCartService.findByPhone(phone);
+        return response;
+    }
 }

@@ -210,7 +210,7 @@ class ProductDetail extends Component {
                                 <div class="dd">9,3:1</div>
                             </li>
                         </ul>
-                        {ReactHtmlParser(pro.description)}
+                        {/* {ReactHtmlParser(pro.description)} */}
                     </div>
 
                     {titleSuggest}

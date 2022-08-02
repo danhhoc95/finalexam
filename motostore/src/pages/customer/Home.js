@@ -100,7 +100,7 @@ class Home extends Component {
                     {videoIntro}
                     {/*  LIST */}
                     <div className="container mt-4">
-                        <h2>Mẩu xe</h2>
+                        <h2>Mẫu xe</h2>
                         <div className="row">
                             {listCardProducts}
                         </div>

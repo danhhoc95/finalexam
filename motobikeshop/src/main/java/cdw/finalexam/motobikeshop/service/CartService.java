@@ -32,6 +32,4 @@ public class CartService implements  ICartService{
     public void remove(CartItem cartItem) {
         iCartRepository.delete(cartItem);
     }
-
-
 }
